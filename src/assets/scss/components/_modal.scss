@@ -1,0 +1,45 @@
+.modal__wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.7);
+    .modal__container {
+        position: fixed;
+        background-color: #fff;
+    }
+    .modal__header {
+        position: relative;
+        padding: 10px 20px;
+        strong {
+            @include fontoption(20px, #000, 500, 25px)
+        }
+        .icon_close-modal {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            width: 35px;
+            height: 35px;
+            max-width: 35px;
+            min-width: 35px;
+            &::before {
+                content: '';
+                display: block;
+                width: 35px;
+                height: 35px;
+                background-image: url('/src/assets/images/icon/icon-close-svg.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+            }
+        }
+    }
+    .modal__body {
+        padding: 20px;
+    }
+}
+.modal__disabled{
+    display: none;
+}

@@ -1,0 +1,309 @@
+$radius: 6px;
+
+//버튼 공통
+@mixin btnCommon {
+  position: relative;
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -.025em;
+  line-height: normal;
+  max-width: 100%;  
+  border-radius: $radius;  
+  text-decoration: none;
+  vertical-align: middle;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  padding:0 20px;
+  cursor: pointer;
+}
+@mixin btntype($btnFontSize,$btnBorder,$btnBGColor,$btnColor,$radius, $btnHoverColor,$btnHoverFtColor, $btnHoverBorderColor) {  
+  font-size: $btnFontSize;
+  border: 1px solid $btnBorder;
+  color: $btnColor;
+  background-color: $btnBGColor;
+  border-radius: $radius;
+  &:hover,
+  &:focus,
+  &:active,    
+  &.active:focus, 
+  &:active:hover{
+    background-color: $btnHoverColor;
+    color: $btnHoverFtColor;
+    border: 1px solid $btnHoverBorderColor;
+    text-decoration: none;    
+  }
+}
+
+@mixin btnSize($btnFontSize,$btnPadding) { 
+  font-size: $btnFontSize;
+  padding: $btnPadding;
+}
+
+.button__wrap {
+  position: relative;
+  padding:32px 0 0;
+  gap: 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  &:last-child {
+    padding-bottom:0;
+  }
+  &.flex-end {
+    justify-content: flex-end;
+  }
+  &.flex-start {
+    justify-content: flex-start;
+  }
+  &.space-between {
+    justify-content: space-between;
+  }
+  > div {
+    display:flex;
+    gap: 8px;
+  }
+}
+
+.btn {
+  @include btnCommon;  
+  min-width: 126px;
+  height: 48px;
+  line-height: 24px;  
+  padding:0 48px; 
+  &.search {
+    font-size: 14px;
+    font-weight: 700;
+    width: 74px;
+    height: 42px;
+    color:#fff;
+    background-color:#717883
+  }
+  &.medium {
+    height: 36px;
+    min-width: 90px;
+    font-size: 14px;
+    padding:0 18px; 
+  }
+  &.small {
+    height: 28px;
+    padding: 0 10px;
+    min-width: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    width:auto;
+    border-radius: 4px;
+  } 
+}
+
+
+//button List
+.primary {
+  @include btntype(16px, $pointColor, $pointColor,#fff, 6px, #2855A7,#fff, #2855A7);
+  &:disabled {
+    background-color:#ccc;
+    border-color:#ccc;
+    &:hover, &:active {
+      background-color:#ccc;
+      border-color:#ccc;
+    }
+  }      
+}
+.btn-primary-line {
+  @include btntype(16px,$pointColor,#fff,$pointColor, 6px,  #fff, #2855A7, #2855A7);               
+  &:disabled {
+    color:#ccc;
+    border-color:#ccc;
+    &:hover, &:active {
+      color:#ccc;
+      border-color:#ccc;
+    }
+  }            
+}
+.btn-line {
+  @include btntype(16px,#999,#fff,#999, 6px,  #fff,#777, #777);       
+  &:disabled {
+    color:#ccc;
+    border-color:#ccc;
+    &:hover, &:active {
+      color:#ccc;
+      border-color:#ccc;
+    }
+  }  
+}
+
+.btn-search {
+  @include btntype(14px, #717883, #717883,#fff, 6px, #717883,#fff, #717883);   
+  line-height: 36px;
+  min-width: auto;
+  height: 36px;
+  padding:0 23px;
+  &:disabled {
+    color:#aaa;
+    border-color:#ccc;
+    background-color: #eaeaea;
+  }
+}
+
+.btn-default-line {
+  @include btntype(14px,#bdbdbd,#fff, #6E7581, 6px, #fff,#bdbdbd, #bdbdbd);  
+  line-height: 36px;
+  min-width: auto;
+  height: 36px;
+  padding:0 20px;
+  cursor: pointer;
+  &+.btn-default-line {
+    margin-left:4px;
+  }  
+  &.small {
+    height: 42px;
+  }
+  &.inactive, &:disabled {
+    color:#ccc;
+    border-color:#ddd;
+    background-color:#f4f4f4;
+    &:hover {
+      color:#ccc;
+      border-color:#ddd;
+      background-color:#f4f4f4;
+    }
+  }
+  &.btn-icon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    .icon-excel {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url('../assets/images/icon/icon_excel.png') no-repeat 50% 50%;
+      background-size: 100%;
+    }
+  }
+  
+}
+.btn{
+  &.medium{
+    &.stat-btn-excel{
+      position: relative;
+      min-width: 171px;
+      padding: 0 32px 0 58px;
+      &::before{
+        content: '';
+        position: absolute;
+        display: inline-flex;
+        width: 20px;
+        height: 20px;
+        background: url('../assets/images/icon/icon_excel.png') no-repeat 50% 50%;
+        background-size: 100%;
+        left:32px;
+      }
+      &.disabled{
+        background-color: transparent;
+        border-color:#ccc;
+        cursor: default;
+        color: #ccc;
+      }
+    }
+  }
+  &[disabled] {
+    pointer-events : none;
+  }
+}
+.disabled{
+  color:#ccc;
+  border-color:#ddd;
+  background-color:#f4f4f4;
+  &:hover,
+  &:focus {
+    color:#ccc;
+    border-color:#ddd;
+    background-color:#f4f4f4;
+    pointer-events : none;
+  }
+}
+
+
+$iconBsUrl: '../assets/images/icon/';
+
+.btn-only-icon {
+  min-width:auto;
+  height:auto;
+  line-height:1;
+  padding:0;
+}
+//icon List
+.icon-eye {
+  width: 20px;
+  height:20px;
+  background-image: url('#{$iconBsUrl}icon_eye.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  &.blue{
+    background-image: url('#{$iconBsUrl}icon_eye_blue.png');
+  }
+}
+.icon-tooltip {
+  width: 16px;
+  height: 16px;
+  background-image: url('#{$iconBsUrl}icon_question.png');
+  background-size: 100%;
+} 
+.icon-search {
+  width:20px;
+  height: 20px;
+  background-image: url('#{$iconBsUrl}icon_search.png');
+  background-size: 100%;
+}
+.btn-sort-up,
+.btn-sort-down {
+    width:10px;
+    height: 10px;
+    padding:0;
+    min-width: 10px;
+    position: absolute;
+}
+.btn-sort-up {
+    background: url('../assets/images/icon/icon_sort_up.png') no-repeat center center;
+    top: 3px;
+    margin-left: 5px;
+}
+.btn-sort-down {
+    background: url('../assets/images/icon/icon_sort_down.png') no-repeat center center;
+    bottom: 3px;
+    margin-left: 5px;
+}
+
+@media #{$phone} {
+  .button__wrap {
+    padding: 24px 0 0;
+    gap: 6px;
+  }
+  .btn {
+    height: 45px;
+    padding:0 12px;
+  }
+  .btn-search {
+    height: 45px;
+    line-height: 45px;
+  }
+
+  .icon-eye {
+    width: 21px;
+    height: 21px;
+    background-image: url('#{$iconBsUrl}icon_eye_mo.png');
+    background-size: 100%;
+    &.blue{
+      width: 21px;
+      height: 21px;
+      background-image: url('#{$iconBsUrl}icon_eye_blue_mo.png');
+      background-size: 100%;
+    }  
+  }
+}
+
+.btn-default-text {
+  color:#fff;
+}

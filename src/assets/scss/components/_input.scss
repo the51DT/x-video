@@ -1,0 +1,43 @@
+//폼 공통요소
+$inputHeight: 36px;
+$font-tsize: 14px;
+$inputColor: #fafafa;
+$bordersColor: #DDDDDD;
+$textareaHeight: 100px;
+
+@mixin inputBasic {  
+    background-color: #fff;    
+    border-radius: 6px;
+    border: 1px solid $bordersColor;    
+    color: #000;
+    display: inline-block;
+    font-size: $font-tsize;
+    height: $inputHeight;
+    line-height: $defaultLineHeight;    
+    padding: 0 16px;    
+    width: 100%;
+    &::placeholder {
+      color: #999;
+    }
+    &:focus {
+      border-color:$pointColor;
+      outline:none;
+    }
+    &:disabled {
+      background-color:#f4f4f4;
+      border-color:$bordersColor;
+      cursor:not-allowed;
+    }
+}
+.input__wrap {
+    display: flex;
+    width: 100%;    
+    .input {
+        &:only-child {
+            width: 100%;
+        }
+    }
+    &+.input__wrap {
+        margin-top:10px;
+    }
+}

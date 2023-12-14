@@ -1,0 +1,9 @@
+.text {
+    @include ellipsis($line: 1);
+}
+.long-text {
+    @include ellipsis($line: 3);
+}
+.middle-text {
+    @include ellipsis($line: 2);
+}

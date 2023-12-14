@@ -1,0 +1,5 @@
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50" version="1.1">
+                                        <g id="surface1">
+                                            <path class="basic-color" :class="{'active-color': video.active == true}" style="stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 36.015625 1.5625 C 31.09375 1.5625 26.953125 4.375 25 8.4375 C 23.046875 4.375 18.90625 1.5625 13.984375 1.5625 C 7.1875 1.5625 1.5625 7.34375 1.5625 13.984375 C 1.5625 25.3125 25 48.4375 25 48.4375 C 25 48.4375 48.4375 25.3125 48.4375 13.984375 C 48.4375 7.34375 42.8125 1.5625 36.015625 1.5625 Z M 36.015625 1.5625 "/>
+                                        </g>
+                                        </svg>

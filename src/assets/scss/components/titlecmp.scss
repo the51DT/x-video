@@ -1,0 +1,25 @@
+.page-title__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h2 {
+    @include fontoption(24px,#000, 500,30px);
+  } 
+  h3 {
+    @include fontoption(20px,#000, 500,25px);
+  }  
+  .num {
+    @include fontoption(12px,#666, 400,16px);
+  }
+  .flag-progress {
+    border: 1px solid #ddd;
+    background-color: #666;    
+    @include fontoption(12px,#fff, 400,16px);
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  &.center {
+    justify-content: center;
+    flex-direction: column;
+  }
+}

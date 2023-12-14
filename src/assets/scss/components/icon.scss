@@ -1,0 +1,10 @@
+//버튼 공통
+@mixin iconCommon($iconSize,$icon, $radius) {  
+  width: $iconSize;
+  height: $iconSize;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: $radius;
+  background-image: url('../images/icon/#{$icon}.png');
+}
+

@@ -1,0 +1,194 @@
+.v-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  background: #000;
+}
+.el-message-box__wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.el-message-box__wrapper:after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 0;
+  vertical-align: middle;
+}
+.el-message-box__wrapper .el-message-box {
+  width: 403px;
+  max-width: 403px;
+}
+.el-message-box {
+  border-radius: 16px;
+  padding: 50px 50px;
+}
+.el-message-box {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  font-size: 14px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  text-align: left;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.el-popper[x-placement^='bottom'] .popper__arrow {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50% !important;
+  width: 10px;
+  height: 10px;
+  margin-top: -1px;
+  background: #fff;
+  border: 0;
+  border-style: none;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.el-popper .popper__arrow:after {
+  display: none;
+}
+.el-message-box__header {
+  display: none;
+}
+.el-message-box__headerbtn {
+  display: none;
+}
+.el-message-box__content {
+  font-size: 16px;
+  color: #222;
+  font-weight: normal;
+  line-height:1.625;
+  text-align: center;
+  letter-spacing: 0;
+  word-break: keep-all;
+  padding: 0 20px;
+}
+.el-message-box__btns {
+  margin-top: 30px;
+  text-align: center;
+}
+.el-message-box .el-button.el-button--small {
+  min-width: 120px;
+  border-width: 1px;
+}
+.el-button {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background: #fff;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-family: 'NotoSansMedium';
+  color: #222;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+.el-button:focus {
+  background: transparent;
+  border-color: #222;
+  color: #222;
+}
+.el-button:hover {
+  background: transparent;
+  border-color: #222;
+  color: #222;
+}
+.el-button.el-button--primary:focus {
+  background: #2F77FB;
+  border-color: #2F77FB;
+  color: #fff;
+}
+.el-button.el-button--primary:hover {
+  background: #2855A7;
+  border-color: #2855A7;
+  color: #fff;
+}
+.el-button + .el-button {
+  margin-left: 8px;
+}
+.el-button.el-button--small {
+  min-width: 76px;
+  height: 48px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px 0 20px;
+  font-size: 16px;
+  line-height: 38px;
+}
+.el-button--default {
+  @include btntype(16px,#999,#fff,#999, 8px,  #fff,#777, #777);  
+  font-family: $font-family;
+  &:disabled {
+    color:#ccc;
+    border-color:#ccc;
+    &:hover, &:active {
+      color:#ccc;
+      border-color:#ccc;
+    }
+  } 
+}
+.el-button--primary {
+  @include btntype(16px, $pointColor, $pointColor,#fff, 8px, #2855A7,#fff, #2855A7);
+  font-family: $font-family;
+  &:disabled {
+    background-color:#ccc;
+    border-color:#ccc;
+    &:hover, &:active {
+      background-color:#ccc;
+      border-color:#ccc;
+    }
+  }
+}
+
+.hidebox {
+  height: 20px;
+}
+
+// .alarm-text pre {
+// 	text-overflow: ellipsis;
+// 	overflow: hidden;
+// 	display: -webkit-box;
+// 	-webkit-box-orient: vertical;
+// 	-webkit-line-clamp: 2;	
+// }
+
+.noti pre {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;	
+}
+
+// 메시지 통계 상세 - 고객분석 (Beta)
+.betaicon {
+  position: relative;
+}
+.betaicon ::after {
+  content: '';
+  position: absolute;
+  background: url(../assets/images/icon/icon_beta.svg) no-repeat 50% 50%;
+  display: inline-flex;
+  width: 50px;
+  height: 21px;
+  background-size: 50px 21px;
+  left: 93px;
+  top: 8px;
+}

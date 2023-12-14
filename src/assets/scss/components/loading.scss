@@ -1,0 +1,45 @@
+.loading {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+}
+.loading-inner {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+}
+.loading-msg {
+  position: absolute;
+  left: 0%;
+  top:50%;  
+  transform: translateY(calc(-50% + 90px));    
+  text-align: center;
+  width: 100%;
+  height: 75px;  
+  @include fontoption(14px,#fff,400,25px);
+}
+.loading-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    z-index: 5;
+    animation: circle-rotate .80s both linear infinite;
+    background:url('../assets/images/icon/icon_loading.png')
+  }
+  @keyframes circle-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }

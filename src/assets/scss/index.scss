@@ -1,0 +1,18 @@
+@import './common/_variables.scss';
+@import './common/base.scss';
+// @import '@/assets/scss/components/titlecmp.scss';
+@import './components/button.scss';
+@import './components/_loading.scss';
+@import './components/_modal.scss';
+// @import '@/assets/scss/components/modal.scss';
+// @import '@/assets/scss/components/tab.scss';
+// @import '@/assets/scss/components/form.scss';
+// @import '@/assets/scss/components/_input.scss';
+// @import '@/assets/scss/components/_table.scss';
+// @import '@/assets/scss/components/icon.scss';
+// @import '@/assets/scss/components/typography.scss';
+
+// 메뉴별
+@import './views/layout.scss';
+// @import '@/assets/scss/views/cmp.scss';
+

@@ -1,0 +1,364 @@
+// 지도 컴포넌트
+// 칼라 테마 css 정의
+.korea-map {
+  position: relative;
+  .land__info--layer {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 16px;
+      @include fontoption(16px,#000,500,20px);
+      white-space: nowrap;
+  }
+}
+.land {
+  fill-opacity: 1;
+  stroke:white;
+  stroke-opacity: 1;
+  stroke-width:0.5;
+  &:hover {
+      opacity: 0.5;
+      transition: all 0.3s;
+  }
+}
+.bluest1 {fill:#0080FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest2 {fill:#0D87FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest3 {fill:#1A8DFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest4 {fill:#2794FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest5 {fill:#359AFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest6 {fill:#42A1FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest7 {fill:#4FA7FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest8 {fill:#5CAEFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest9 {fill:#69B4FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest10 {fill:#76BBFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest11 {fill:#83C2FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest12 {fill:#90C8FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest13 {fill:#9ECFFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest14 {fill:#ABD5FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest15 {fill:#B8DCFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest16 {fill:#C5E2FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest17 {fill:#D2E9FF;stroke:#FFFFFF;stroke-width:5;}
+
+.redst1{fill:#FF4A1A;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst2{fill:#FF5427;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst3{fill:#FF5E34;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst4{fill:#FF6941;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst5{fill:#FF734E;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst6{fill:#FF7D5A;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst7{fill:#FF8767;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst8{fill:#FF9174;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst9{fill:#FF9C81;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst10{fill:#FFA68E;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst11{fill:#FFB09B;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst12{fill:#FFBAA8;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst13{fill:#FFC4B5;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst14{fill:#FFCEC1;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst15{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst16{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst17{fill:#FFEDE8;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+
+
+// 아코디언
+.accordion-list__wrap {
+  border-top: 2px solid #BCBCBC;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+  .accordion__item {    
+    border-bottom: 1px solid #F0F0F0;
+    a.accordion__title {
+      position: relative;    
+      @include fontoption(14px,#000000,400,26px);
+      display: block;
+      padding: 17px 85px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 40px;
+        top: 40%;
+        transform: translateY(-50%);
+        width: 16px;
+        height:16px;
+        background-image: url('../assets/images/icon/icon_arrow_accordion.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        transition: all 0.3s;
+      }
+      &.isOpen {
+        &::after {      
+          transform: rotate(0deg);    
+          transition: all 0.3s;
+        }
+      } 
+      .accordion-cate {
+        position: absolute;
+        left: 40px;
+        top:50%;
+        transform: translateY(-50%);
+        @include fontoption(14px,#000000,500,24px)
+      }
+      .accordion-title__title:hover {
+        text-decoration: underline;
+      }
+      .ico-attach {
+        display: inline-block;
+        width:18px;
+        height:19px;
+        margin-left:5px;
+        position:relative;
+        top: 4px;
+        background:url('../assets/images/customer/ico_attach.png') no-repeat 50% 50%
+      } 
+    }
+  }
+  .accordion__content {
+    position: relative;
+    padding: 20px 40px 40px 82px;
+    background-color: #F8F8F8;
+    .accordion-cate {
+      position: absolute;
+      left: 40px;
+      top:20px;
+      @include fontoption(14px,#2F77FB,500,24px)
+    }  
+    .attach-area {
+      display: flex;
+      align-items: center;
+      border-bottom:1px solid #ddd;
+      padding:0  0 16px;
+      margin-bottom: 16px;
+      .attach-title {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0   0 113px;
+        padding-left: 14px;
+        @include fontoption(14px,#000000,500,26px);
+      }
+      .attach-list {
+        display: flex;
+        flex-direction: column;
+        padding:0 32px 0 0;
+        flex: auto;
+        position:relative;
+        gap: 12px;
+        padding-left:32px;
+        &:before {
+          content: '';
+            position:absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-block;
+            height: 50%;
+            width: 1px;
+            background-color: #ddd;
+        }
+        a {
+          display: inline-flex;
+          align-items: center;
+          @include fontoption(14px,#000000,400,26px);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+          .ico-download {
+            flex-shrink: 0;
+            display: inline-block;
+            width:24px;
+            height:24px;
+            flex-shrink: 0;
+            margin-left:8px;
+            background:url('../assets/images/customer/ico_download.png') no-repeat 50% 50%;
+          }
+        }
+      }
+    }  
+  }
+}
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}
+// faq
+
+.movie-list__wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding-top: 30px;
+  .movie-item {        
+    width: 20%;
+  }
+  .movie-item__img {
+    width: 100%;
+    position: relative;
+    img {width: 100%}
+  }
+  .movie-item__info {
+    .movie-item__info-title {
+      @include fontoption(20px, #000, 500, 35px);
+    }
+    .movie-item__info-desc {
+      margin-top: 5px;
+      @include fontoption(16px, #000, 400, 28px);
+      @include ellipsis($line: 3);
+      .date {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.btn-icon-play {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 67px;
+  z-index: 22;
+  min-width: initial;
+  height: initial;
+  max-width: initial;
+  .icon-play {
+    display: block;
+    width:50px;
+    height: 50px;    
+      &::before {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-image: url("@/assets/images/icon/icon-play-red.svg");
+        background-repeat: no-repeat;
+        background-position: center left;
+        background-size: contain;  
+      }
+  }
+}
+.movie-rangking__wrap {
+  margin: 30px 0 100px;
+  width: 100%;
+  .table-list {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    th {
+      text-align: center;
+      vertical-align: middle;
+      @include fontoption(16px, #000, 400, 28px);
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+    }
+    td {
+      text-align: center;
+      vertical-align: middle;
+      @include fontoption(16px, #000, 400, 28px);
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+.movie-popular__wrap {
+  margin: 50px auto;
+  max-width: 90vw;
+  .movie-item__info {
+    .rate {
+      @include fontoption(12px, #000, 400, 20px);
+    }
+    .movie-item__info-title {
+      @include fontoption(20px, #000, 500, 35px);
+    }
+    .movie-item__info-desc {
+      margin-top: 5px;
+      @include fontoption(16px, #000, 400, 28px);
+      @include ellipsis($line: 3);
+      .date {
+        font-size: 14px;
+      }
+    }
+  }
+}
+//행운카드 보기
+.card-option__wrap {
+  position: fixed;
+  // background-color: rgba(0, 0, 0, 0.8);
+  left: 50%;
+  top: 50%;
+  width: 285px;
+  height: 407px;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  &.is-active {
+    display: block;
+  }
+}
+
+.card__item--wrap {
+  position:relative;
+  width:100%;
+  height:100%;
+  perspective: 300px;
+  .card-item {
+    width:100%;
+    height:100%;
+    text-align:center;
+    border:1px solid #ccc;
+    backface-visibility: hidden;
+    transition: 1s;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    .card-item__innerbox {
+      position:relative;
+      height:100%;
+      width:100%;
+      span {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        strong {
+          font-size:26px;
+        }
+      }
+    }
+    &.front {
+    position:absolute;
+    left:0;
+    top:0;
+    transform: rotateY(0deg);
+      &.one-card {
+        background:#7543e2;
+      }
+      &.two-card {
+        background:#e27543;
+      }
+      &.theree-card {
+        background:#43e275;
+      }
+  }
+    &.backface {
+      position:absolute;
+      left:0;
+      top:0;
+      background:#1d1138;
+      transform: rotateY(-180deg);
+    }
+  }
+  &.is-active {
+    .front {
+      transform: rotateY(180deg);
+    }
+    .backface {
+      transform: rotateY(0deg);
+    }
+  }
+}

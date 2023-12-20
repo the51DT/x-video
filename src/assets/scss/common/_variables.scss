@@ -1,0 +1,81 @@
+// 전역으로 사용되는 mixin 등 전역 변수 정의
+//반응형
+$phone: "only screen and (max-width : 769px)";
+$phone480: "only screen and (max-width : 480px)";
+$phone360: "only screen and (max-width : 360px)";
+$phonemini: "only screen and (max-width : 320px)";
+$notebook: "screen and (max-width : 1366px)";
+$tablet: "screen and (max-width : 1024px)";
+$desktop: "screen and (min-width : 769px)";
+$desktop1025: "screen and (min-width : 1025px)";
+
+//폰트 
+@mixin fontoption($font-tsize, $font-color, $font-weight,$line-height) {
+    font-family: $font-family;
+    font-size: $font-tsize;
+    color: $font-color;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: normal;
+    font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;                        
+}
+
+//긴 문장 처리
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
+@function rem($value) {
+    // @debug type-of($value);
+    @if 0 == str-index(#{$value}, 'px') {
+        @warn "invalid value. use 'px'";
+    } @else {
+        @if list == type-of($value) {
+            $rem: to-rem(list.nth($value, 1));
+            $output: $rem;
+            @for $i from 2 through length($value) {
+                $rem: to-rem(list.nth($value, $i));
+                $output: list.append($output, $rem);
+                // @debug $output;
+            }
+            @return $output;
+        } @else {
+            @return to-rem($value);
+        }
+    }
+}
+//color values
+$defaultColor: #000000;
+$pointColor: #2F77FB;
+$grayColor: #DDDDDD;
+$errorColor: #FF4830;
+
+//폰트
+$defaultFontSize: 14px;
+$defaultLineHeight: 26px;
+
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+.text-ellipsis-wd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+}

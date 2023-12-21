@@ -33,7 +33,7 @@ let VideoData = [
     playing: false,
     isActive: false,
     active: false,
-    mouseState: 'default',
+    mouseStatus: 'default',
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ let VideoData = [
     playing: false,
     isActive: false,
     active: false,
-    mouseState: 'default',
+    mouseStatus: 'default',
   },
   {
     id: 3,
@@ -116,7 +116,7 @@ let VideoData = [
     playing: false,
     isActive: false,
     active: false,
-    mouseState: 'default',
+    mouseStatus: 'default',
   },
   {
     id: 4,
@@ -171,7 +171,7 @@ let VideoData = [
     playing: false,
     isActive: false,
     active: false,
-    mouseState: 'default',
+    mouseStatus: 'default',
   },
   {
     id: 5,
@@ -207,7 +207,7 @@ let VideoData = [
     playing: false,
     isActive: false,
     active: false,
-    mouseState: 'default',
+    mouseStatus: 'default',
   },
 ]
 

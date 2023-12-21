@@ -12,7 +12,7 @@
         v-for="(video, index) in videos"
         :key="index"
         class="video"
-        :data-mouse-state="video.mouseState"
+        :data-mouse-status="video.mouseStatus"
       >
         <video
           :src="video.url"
@@ -27,18 +27,17 @@
           :playing="video.playing"
           ref="videoRef"
           @click="toggleVideo(video, index)"
-          @dblclick="doubleClickE(video, index)"
+          @dblclick="handleToggle(video, index)"
         ></video>
         <i
-          :class="
-            video.playing == true
-              ? 'icon-video icon-video--pause'
-              : 'icon-video icon-video--play'
-          "
+          :class="`icon-video ${
+            video.playing == true ? 'icon-video--pause' : 'icon-video--play'
+          } ${video.playing}`"
         ></i>
         <i
+          :screenActive="true"
           :class="
-            video.active == true
+            screenActive == true
               ? 'icon-video icon-video--add-like-cnt'
               : 'icon-video'
           "
@@ -120,6 +119,7 @@ const commentModalOpen = ref(false)
 const shareModalOpen = ref(false)
 // const myVideo = ref(null)
 // const isPlaying = ref(false)
+const screenActive = ref(false)
 
 onMounted(() => {
   const swiperInstance = swiperRef.value.swiper
@@ -130,16 +130,27 @@ onMounted(() => {
   }
 })
 
-const handleToggle = (video) => {
-  // isActive.value = !isActive.value
-  console.log(video.active)
-  // toggle
-  // video.active = !video.active
-  // console.log(video.active)
+// const handleToggle = (video) => {
+//   // isActive.value = !isActive.value
+//   console.log(video.active)
+//   // toggle
+//   // video.active = !video.active
+//   // console.log(video.active)
 
-  // click -> true
-  video.active = true
+//   // click -> true
+//   video.active = true
+//   video.statistics.like_count++
+// }
+
+const handleToggle = (video, index) => {
   video.statistics.like_count++
+  video.active = true
+  screenActive.value = true
+  // counter fn(t/f)
+  console.log('double', video.active.value)
+  setTimeout(() => {
+    screenActive.value = false
+  }, 1000)
 }
 
 // const toggleVideo = () => {
@@ -190,12 +201,6 @@ const toggleVideo = (video, index) => {
   } else {
     videoElement.play()
   }
-}
-
-const doubleClickE = (video, index) => {
-  video.statistics.like_count++
-  video.active = true
-  console.log('double', video.active.value)
 }
 
 // const swiperOptions = {

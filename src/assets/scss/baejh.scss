@@ -45,14 +45,6 @@ video::-webkit-media-controls-fullscreen-button {
   width: 360px;
   height: 640px;
   .video {
-    &.click {
-      .icon-video {
-        display: block;
-      }
-    }
-    .icon-video--block {
-      display: block;
-    }
     .icon-video {
       position: absolute;
       left: 50%;
@@ -67,12 +59,19 @@ video::-webkit-media-controls-fullscreen-button {
           no-repeat;
       }
       &--play {
+        // display: block;
         background: url('/src/assets/icon/video-pause.svg') center / contain
           no-repeat;
       }
       &--add-like-cnt {
         display: block;
         animation: displayLike 2s forwards;
+      }
+    }
+    // 영상 재생중인 상태에서 mouseover 시 버튼
+    &:hover {
+      .false.icon-video--play {
+        display: block;
       }
     }
   }
@@ -89,7 +88,7 @@ video::-webkit-media-controls-fullscreen-button {
       display: block;
       width: 100px;
       height: 100px;
-      opacity: 0.8;
+      opacity: 1;
     }
 
     0% {

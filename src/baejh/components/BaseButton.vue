@@ -72,6 +72,7 @@ const toggle = () => {
     /* 더보기 버튼 */
     background: url(@/assets/icon/plus.svg) center / contain no-repeat;
     vertical-align: middle;
+    padding: 29px;
   }
   .base-button--subscriptions {
     /* 구독 버튼 */

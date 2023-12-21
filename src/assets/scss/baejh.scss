@@ -68,18 +68,28 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
 }
 
 
-.navigation-bar {
-  position: absolute;
-  background-color: rgba($color: #181818, $alpha: 1.0);
-  width: 360px;
-  padding: 10px;
-  display: flex;
-  gap: 10px;
-  .base-button {
-    /* 기본 버튼 스타일 */
-    padding: 30px;
-    cursor: pointer;
-    border: 0;
+.navigation {
+  &-bar {
+    position: absolute;
+    background-color: rgba($color: #181818, $alpha: 1.0);
+    width: 360px;
+    padding: 10px 12px;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &:nth-child(2),&:nth-child(3) {
+      margin-left: 15px;
+    }
+    p {
+      color: #fff;
+      font-size: 12px;
+    }
   }
 }
 

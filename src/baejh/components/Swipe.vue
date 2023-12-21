@@ -1,7 +1,9 @@
 <template>
   <div class="video-swipe" :ref="videoSwipeRef">
-      <swiper v-bind="swiperOptions" ref="swiperRef">
-        <swiper-slide v-for="(video, index) in videos" :key="index" class="video">
+    
+    <swiper v-bind="swiperOptions" ref="swiperRef">
+      <swiper-slide v-for="(video, index) in videos" :key="index" class="video">
+        <div>
           <video :src="video.url" loop muted controls autoplay="autoplay"></video>
           <!-- <button @click="toggleVideo">{{ isPlaying ? '일시정지' : '재생' }}</button> -->
           <div class="video-details">
@@ -22,28 +24,31 @@
               <span>{{ video.statistics.share_count }}</span>
             </div>
           </div>
-          <!-- 모달창 -->
-          <div v-if="commentModalOpen" class="modal modal-comment">
+        </div>
+        <!-- 모달창 -->
+        <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div>
+        <div v-if="commentModalOpen" class="modal">
+          <div class="modal-comment">
             <button @click="closeModal">닫기</button>
-              <!-- 댓글 -->
-              <div class="comments">
-                <div v-for="(comment, commentIndex) in video.comments" :key="commentIndex" class="comment">
-                  <p class="comment-user">{{ comment.nickName }} &nbsp; • &nbsp; {{ comment.writeTime }}</p>
-                  <p>{{ comment.user_comment }}</p>
-                </div>
+            <!-- 댓글 -->
+            <div class="comments">
+              <div v-for="(comment, commentIndex) in video.comments" :key="commentIndex" class="comment">
+                <p class="comment-user">{{ comment.nickName }} &nbsp; • &nbsp; {{ comment.writeTime }}</p>
+                <p>{{ comment.user_comment }}</p>
               </div>
+            </div>
           </div>
-          <div v-if="shareModalOpen" class="modal modal-share">
-            <button @click="closeModal">닫기</button>
-              <!-- 공유 -->
-              <div class="share">
-                공유
-              </div>
-          </div>
-        </swiper-slide>
-      </swiper>
-    </div>
-
+        </div>
+        <div v-if="shareModalOpen" class="modal modal-share">
+          <button @click="closeModal">닫기</button>
+            <!-- 공유 -->
+            <div class="share">
+              공유
+            </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>
@@ -64,15 +69,13 @@ const commentModalOpen = ref(false);
 const shareModalOpen = ref(false);
 const myVideo = ref(null);
 const isPlaying = ref(false);
+const isModalOpen = ref(false);
 
-onMounted(() => {
-  const swiperInstance = swiperRef.value.swiper;
-  if (swiperInstance) {
-    swiperInstance.on('slideChange', () => {
-      console.log('Slide changed!');
-    });
-  }
-});
+const swiperOptions = {
+  direction: 'vertical',
+  loop: true,
+  mousewheel: true,
+};
 
 const handleToggle = (video) => {
   isActive.value = !isActive.value;
@@ -92,25 +95,40 @@ const toggleVideo = () => {
   }
 };
 
+const onModalOpen = () => {
+  isModalOpen.value = true;
+  const swiperInstance = swiperRef.value?.swiper;
+  if (swiperInstance) {
+    swiperInstance.destroy(false, true); // 스와이프 이벤트 해제
+  }
+  document.body.classList.add('video-modal-open');
+};
+
+const onModalClose = () => {
+  isModalOpen.value = false;
+  const swiperInstance = swiperRef.value?.swiper;
+  if (swiperInstance) {
+    swiperInstance.init(); // 스와이프 이벤트 다시 활성화
+  }
+  document.body.classList.remove('video-modal-open');
+};
+
 const commentopenModal = (video) => {
   commentModalOpen.value = true;
   shareModalOpen.value = false;
+  onModalOpen();
 };
 
 const shareopenModal = (video) => {
   shareModalOpen.value = true;
   commentModalOpen.value = false;
+  onModalOpen();
 };
 
 const closeModal = () => {
   commentModalOpen.value = false;
   shareModalOpen.value = false;
-};
-
-const swiperOptions = {
-  direction: 'vertical',
-  loop: true,
-  mousewheel: true,
+  onModalClose();
 };
 </script>
 

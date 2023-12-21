@@ -51,7 +51,7 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
   position: absolute;
   margin-left: 320px;
   bottom: 0;
-  z-index: 10;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -94,16 +94,30 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
 }
 
 
+
+.swiper-dim {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control dim intensity */
+  z-index: 10;
+}
+
 .modal {
-  position: absolute;
-  z-index: 1;
+  height: 640px;
+  margin-top: -647px;
+  position: relative;
+  z-index: 20;
   transition: 0.5s ease-in-out ;
-  &.modal-comment {
+  .modal-comment {
+    position: absolute;
     bottom: 0;
     padding: 5px 60px 5px 10px;
     border-radius: 20px 20px 0 0;
     background-color: rgba($color: #181818, $alpha: 1.0);
     color: rgba($color: #fff, $alpha: 1.0);
+    z-index: 30;
     button {    
       display: flex;
       justify-content: center;
@@ -120,7 +134,9 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
     }
   }
   &.modal-share {
+    position: absolute;
     bottom: 0;
+    height: 200px;
     width: 290px;
     padding: 5px 60px 5px 10px;
     border-radius: 20px 20px 0 0;

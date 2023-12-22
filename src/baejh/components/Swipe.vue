@@ -73,19 +73,39 @@
           </div>
         </div>
         <!-- 모달창 -->
-        <div v-if="commentModalOpen" class="modal modal-comment">
-          <button @click="closeModal">닫기</button>
-          <!-- 댓글 -->
-          <div class="comments">
+        <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div>
+        <div v-if="commentModalOpen" class="modal">
+          <div class="modal-comment">
+            <button class="button-close" @click="closeModal">닫기</button>
+            <!-- 댓글 -->
             <div
               v-for="(comment, commentIndex) in video.comments"
               :key="commentIndex"
               class="comment"
             >
-              <p class="comment-user">
-                {{ comment.nickName }} &nbsp; • &nbsp; {{ comment.writeTime }}
-              </p>
-              <p>{{ comment.user_comment }}</p>
+              <div class="modal-comment--top">
+                <p class="comment-user">
+                  {{ comment.nickName }} &nbsp; • &nbsp; {{ comment.writeTime }}
+                </p>
+                <div class="modal-comment--button">
+                  <button @click="editComment(video, commentIndex)">
+                    편집
+                  </button>
+                  <button @click="deleteComment(video, commentIndex)">
+                    삭제
+                  </button>
+                </div>
+              </div>
+              <div v-if="editCommentIndex === commentIndex">
+                <textarea v-model="editedComment"></textarea>
+                <div class="modal-comment--button">
+                  <button @click="saveComment(video)">저장</button>
+                  <button @click="cancelEditComment">취소</button>
+                </div>
+              </div>
+              <div v-else>
+                <p>{{ comment.user_comment }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -120,6 +140,8 @@ const shareModalOpen = ref(false)
 // const myVideo = ref(null)
 // const isPlaying = ref(false)
 const isModalOpen = ref(false)
+const editCommentIndex = ref(null)
+const editedComment = ref('')
 
 onMounted(() => {
   const swiperInstance = swiperRef.value.swiper
@@ -168,16 +190,21 @@ const handleToggle = (video, index) => {
 
 // 댓글 편집
 const editComment = (video, commentIndex) => {
-  // 내용 수정 (prompt -> input창으로 수정)
-  const editedComment = prompt(
-    '댓글을 수정하세요:',
-    video.comments[commentIndex].user_comment,
-  )
+  editCommentIndex.value = commentIndex
+  editedComment.value = video.comments[commentIndex].user_comment
+}
 
-  // 사용자가 수정을 취소하지 않은 경우, 댓글을 업데이트합니다.
-  if (editedComment !== null) {
-    video.comments[commentIndex].user_comment = editedComment
+// 댓글 편집 저장
+const saveComment = (video) => {
+  if (editCommentIndex.value !== null) {
+    video.comments[editCommentIndex.value].user_comment = editedComment.value
+    cancelEditComment()
   }
+}
+
+const cancelEditComment = () => {
+  editCommentIndex.value = null
+  editedComment.value = ''
 }
 
 // 댓글 삭제
@@ -186,48 +213,8 @@ const deleteComment = (video, commentIndex) => {
   video.comments.splice(commentIndex, 1)
   // 카운트 삭제
   video.statistics.comment_count--
+  cancelEditComment()
 }
-
-const onModalOpen = () => {
-  isModalOpen.value = true
-  const swiperInstance = swiperRef.value?.swiper
-  if (swiperInstance) {
-    swiperInstance.destroy(false, true) // 스와이프 이벤트 해제
-  }
-  document.body.classList.add('video-modal-open')
-}
-
-const onModalClose = () => {
-  isModalOpen.value = false
-  const swiperInstance = swiperRef.value?.swiper
-  if (swiperInstance) {
-    swiperInstance.init() // 스와이프 이벤트 다시 활성화
-  }
-  document.body.classList.remove('video-modal-open')
-}
-
-// 댓글 편집
-const editComment = (video, commentIndex) => {
-  // 내용 수정 (prompt -> input창으로 수정)
-  const editedComment = prompt(
-    '댓글을 수정하세요:',
-    video.comments[commentIndex].user_comment,
-  )
-
-  // 사용자가 수정을 취소하지 않은 경우, 댓글을 업데이트합니다.
-  if (editedComment !== null) {
-    video.comments[commentIndex].user_comment = editedComment
-  }
-}
-
-// 댓글 삭제
-const deleteComment = (video, commentIndex) => {
-  // 배열에서 해당 댓글 삭제
-  video.comments.splice(commentIndex, 1)
-  // 카운트 삭제
-  video.statistics.comment_count--
-}
-
 const onModalOpen = () => {
   isModalOpen.value = true
   const swiperInstance = swiperRef.value?.swiper

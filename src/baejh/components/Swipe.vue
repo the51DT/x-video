@@ -68,10 +68,10 @@
           </div>
         </div>
         <!-- 모달창 -->
-        <!-- <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div> -->
-        <div v-if="commentModalOpen" class="modal">
+        <!-- <div v-if="video.commentModalOpen || video.shareModalOpen" class="swiper-dim"></div> -->
+        <div v-if="video.commentModalOpen" class="modal">
           <div class="modal-comment">
-            <button class="button-close" @click="closeModal">닫기</button>
+            <button class="button-close" @click="closeModal(video)">닫기</button>
             <!-- 댓글 -->
             <div
               v-for="(comment, commentIndex) in video.comments"
@@ -104,9 +104,9 @@
             </div>
           </div>
         </div>
-        <div v-if="shareModalOpen" class="modal">
+        <div v-if="video.shareModalOpen" class="modal">
           <div class="modal-share">
-            <button @click="closeModal">닫기</button>
+            <button @click="closeModal(video)">닫기</button>
             <!-- 공유 -->
             <button @click="shareLink(video)">URL 복사하기</button>
           </div>
@@ -213,39 +213,22 @@ const deleteComment = (video, commentIndex) => {
   video.statistics.comment_count--
   cancelEditComment()
 }
-const onModalOpen = () => {
-  isModalOpen.value = true
-  const swiperInstance = swiperRef.value?.swiper
-  if (swiperInstance) {
-    swiperInstance.destroy(false, true) // 스와이프 이벤트 해제
-  }
-  document.body.classList.add('video-modal-open')
-}
-
-const onModalClose = () => {
-  isModalOpen.value = false
-  const swiperInstance = swiperRef.value?.swiper
-  if (swiperInstance) {
-    swiperInstance.init() // 스와이프 이벤트 다시 활성화
-  }
-  document.body.classList.remove('video-modal-open')
-}
 
 const commentopenModal = (video) => {
-  commentModalOpen.value = true
-  shareModalOpen.value = false
+  video.commentModalOpen = true
+  video.shareModalOpen = false
   onModalOpen()
 }
 
 const shareopenModal = (video) => {
-  shareModalOpen.value = true
-  commentModalOpen.value = false
+  video.shareModalOpen = true
+  video.commentModalOpen = false
   onModalOpen()
 }
 
-const closeModal = () => {
-  commentModalOpen.value = false
-  shareModalOpen.value = false
+const closeModal = (video) => {
+  video.commentModalOpen = false
+  video.shareModalOpen = false
   onModalClose()
 }
 

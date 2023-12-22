@@ -104,10 +104,12 @@
             </div>
           </div>
         </div>
-        <div v-if="shareModalOpen" class="modal modal-share">
-          <button @click="closeModal">닫기</button>
-          <!-- 공유 -->
-          <button @click="shareLink(video)">URL 복사하기</button>
+        <div v-if="shareModalOpen" class="modal">
+          <div class="modal-share">
+            <button @click="closeModal">닫기</button>
+            <!-- 공유 -->
+            <button @click="shareLink(video)">URL 복사하기</button>
+          </div>
         </div>
       </swiper-slide>
     </swiper>

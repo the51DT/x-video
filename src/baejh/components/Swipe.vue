@@ -8,12 +8,7 @@
       :mousewheel="true"
       :modules="modules"
     >
-      <swiper-slide
-        v-for="(video, index) in videos"
-        :key="index"
-        class="video"
-        :data-mouse-status="video.mouseStatus"
-      >
+      <swiper-slide v-for="(video, index) in videos" :key="index" class="video">
         <video
           :src="video.url"
           loop
@@ -73,7 +68,7 @@
           </div>
         </div>
         <!-- 모달창 -->
-        <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div>
+        <!-- <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div> -->
         <div v-if="commentModalOpen" class="modal">
           <div class="modal-comment">
             <button class="button-close" @click="closeModal">닫기</button>
@@ -137,6 +132,7 @@ const swiperRef = ref(null)
 // const isActive = ref(false)
 const commentModalOpen = ref(false)
 const shareModalOpen = ref(false)
+const screenActive = ref(false)
 // const myVideo = ref(null)
 // const isPlaying = ref(false)
 const isModalOpen = ref(false)

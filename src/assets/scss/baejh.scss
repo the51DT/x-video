@@ -99,10 +99,12 @@ video::-webkit-media-controls-fullscreen-button {
 
 .video-details {
   position: absolute;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  margin: -68px 0;
   padding: 5px 10px;
   background-color: rgba($color: #181818, $alpha: 0.5);
+  box-sizing: border-box;
   h2 {
     color: #fff;
   }

@@ -8,7 +8,7 @@
           <slot></slot>
         </div>
         <div class="navigation-modal__util">
-          <button class="navigation-modal__btn-close">
+          <button class="navigation-modal__btn-close" @click="navPopupClose">
             <span class="a11y">close</span>
           </button>
         </div>
@@ -19,15 +19,15 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue'
+import { ref, defineProps } from 'vue'
 
 const props = defineProps(['type'])
-// const emit = defineEmits()
 
-// const toggle = () => {
-//   console.log('Button clicked')
-//   emit('toggle', !props.active)
-// }
+console.log(props)
+
+const navPopupClose = () => {
+  console.log('close')
+}
 </script>
 <style lang="scss">
 $desktop: 'screen and (min-width : 769px)';

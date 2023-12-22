@@ -9,6 +9,7 @@
       <div class="navigation">
         <navigation></navigation>
       </div>
+      <!-- 텔레포트 -->
       <componentPopup type="bottomLayer"></componentPopup>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="phone">
       <div class="screen">
         <div class="video">
-          <swipe :videos="videoList"></swipe>
+          <test :videos="videoList"></test>
         </div>
       </div>
       <div class="navigation">
@@ -16,6 +16,7 @@
 <script setup>
 import navigation from "@/baejh/components/Navigation.vue";
 import swipe from "@/baejh/components/Swipe.vue";
+import test from "@/baejh/components/test.vue";
 import VideoData from "@/baejh/components/videoList.js";
 import '@/assets/scss/baejh.scss';
 import { ref } from 'vue';

@@ -119,7 +119,7 @@ const commentModalOpen = ref(false)
 const shareModalOpen = ref(false)
 // const myVideo = ref(null)
 // const isPlaying = ref(false)
-const screenActive = ref(false)
+const isModalOpen = ref(false)
 
 onMounted(() => {
   const swiperInstance = swiperRef.value.swiper
@@ -166,19 +166,102 @@ const handleToggle = (video, index) => {
 //   }
 // }
 
+// 댓글 편집
+const editComment = (video, commentIndex) => {
+  // 내용 수정 (prompt -> input창으로 수정)
+  const editedComment = prompt(
+    '댓글을 수정하세요:',
+    video.comments[commentIndex].user_comment,
+  )
+
+  // 사용자가 수정을 취소하지 않은 경우, 댓글을 업데이트합니다.
+  if (editedComment !== null) {
+    video.comments[commentIndex].user_comment = editedComment
+  }
+}
+
+// 댓글 삭제
+const deleteComment = (video, commentIndex) => {
+  // 배열에서 해당 댓글 삭제
+  video.comments.splice(commentIndex, 1)
+  // 카운트 삭제
+  video.statistics.comment_count--
+}
+
+const onModalOpen = () => {
+  isModalOpen.value = true
+  const swiperInstance = swiperRef.value?.swiper
+  if (swiperInstance) {
+    swiperInstance.destroy(false, true) // 스와이프 이벤트 해제
+  }
+  document.body.classList.add('video-modal-open')
+}
+
+const onModalClose = () => {
+  isModalOpen.value = false
+  const swiperInstance = swiperRef.value?.swiper
+  if (swiperInstance) {
+    swiperInstance.init() // 스와이프 이벤트 다시 활성화
+  }
+  document.body.classList.remove('video-modal-open')
+}
+
+// 댓글 편집
+const editComment = (video, commentIndex) => {
+  // 내용 수정 (prompt -> input창으로 수정)
+  const editedComment = prompt(
+    '댓글을 수정하세요:',
+    video.comments[commentIndex].user_comment,
+  )
+
+  // 사용자가 수정을 취소하지 않은 경우, 댓글을 업데이트합니다.
+  if (editedComment !== null) {
+    video.comments[commentIndex].user_comment = editedComment
+  }
+}
+
+// 댓글 삭제
+const deleteComment = (video, commentIndex) => {
+  // 배열에서 해당 댓글 삭제
+  video.comments.splice(commentIndex, 1)
+  // 카운트 삭제
+  video.statistics.comment_count--
+}
+
+const onModalOpen = () => {
+  isModalOpen.value = true
+  const swiperInstance = swiperRef.value?.swiper
+  if (swiperInstance) {
+    swiperInstance.destroy(false, true) // 스와이프 이벤트 해제
+  }
+  document.body.classList.add('video-modal-open')
+}
+
+const onModalClose = () => {
+  isModalOpen.value = false
+  const swiperInstance = swiperRef.value?.swiper
+  if (swiperInstance) {
+    swiperInstance.init() // 스와이프 이벤트 다시 활성화
+  }
+  document.body.classList.remove('video-modal-open')
+}
+
 const commentopenModal = (video) => {
   commentModalOpen.value = true
   shareModalOpen.value = false
+  onModalOpen()
 }
 
 const shareopenModal = (video) => {
   shareModalOpen.value = true
   commentModalOpen.value = false
+  onModalOpen()
 }
 
 const closeModal = () => {
   commentModalOpen.value = false
   shareModalOpen.value = false
+  onModalClose()
 }
 
 const shareLink = (el) => {

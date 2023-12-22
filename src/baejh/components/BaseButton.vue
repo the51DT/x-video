@@ -67,25 +67,30 @@ const toggle = () => {
   /* 홈 버튼 */
   background: url(@/assets/icon/home.svg) center / contain no-repeat;
   vertical-align: middle;
+  padding: 14px;
 }
 .base-button--shots {
   /* 숏츠 버튼 */
   background: url(@/assets/icon/shots.svg) center / contain no-repeat;
   vertical-align: middle;
+  padding: 14px;
 }
 .base-button--plus {
   /* 더보기 버튼 */
   background: url(@/assets/icon/plus.svg) center / contain no-repeat;
   vertical-align: middle;
+  padding: 29px;
 }
 .base-button--subscriptions {
   /* 구독 버튼 */
   background: url(@/assets/icon/subscriptions.svg) center / contain no-repeat;
   vertical-align: middle;
+  padding: 14px;
 }
 .base-button--library {
   /* 라이브러리 버튼 */
   background: url(@/assets/icon/library.svg) center / contain no-repeat;
   vertical-align: middle;
+  padding: 14px;
 }
 </style>

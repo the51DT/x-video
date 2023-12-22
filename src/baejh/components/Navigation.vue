@@ -1,10 +1,24 @@
 <template>
   <div class="navigation-bar">
-    <base-button type="home"></base-button>
-    <base-button type="shots"></base-button>
-    <base-button type="plus" @click="uploadopenModal()"></base-button>
-    <base-button type="subscriptions" @click="mypageopenModal()"></base-button>
-    <base-button type="library" @click="mypageopenModal()"></base-button>
+    <div class="navigation-button">
+      <base-button type="home"></base-button>
+      <p>home</p>
+    </div>
+    <div class="navigation-button">
+      <base-button type="shots"></base-button>
+      <p>shots</p>
+    </div>
+    <div class="navigation-button">
+      <base-button type="plus" @click="uploadopenModal()"></base-button>
+    </div>
+    <div class="navigation-button">
+      <base-button type="subscriptions" @click="mypageopenModal()"></base-button>
+      <p>subscriptions</p>
+    </div>
+    <div class="navigation-button">
+      <base-button type="library" @click="mypageopenModal()"></base-button>
+      <p>library</p>
+    </div>
   </div>
   <!-- 모달창 -->
   <div v-if="uploadModalOpen" class="modal modal-upload">

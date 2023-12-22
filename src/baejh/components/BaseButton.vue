@@ -63,34 +63,63 @@ const toggle = () => {
 }
 
 /* 네비게이션 */
-.base-button--home {
+.base-button--home:before {
   /* 홈 버튼 */
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 24px;
+  height: 24px;
   background: url(@/assets/icon/home.svg) center / contain no-repeat;
   vertical-align: middle;
   /* padding: 14px; */
 }
-.base-button--shots {
+.base-button--shots:before {
   /* 숏츠 버튼 */
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 30px;
+  height: 26px;
   background: url(@/assets/icon/shots.svg) center / contain no-repeat;
   vertical-align: middle;
   /* padding: 14px; */
 }
-.base-button--plus {
+.base-button--plus:before {
   /* 더보기 버튼 */
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 42px;
+  height: 42px;
   background: url(@/assets/icon/plus.svg) center / contain no-repeat;
   vertical-align: middle;
   /* padding: 29px; */
 }
-.base-button--subscriptions {
+.base-button--subscriptions:before {
   /* 구독 버튼 */
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 28px;
+  height: 28px;
   background: url(@/assets/icon/subscriptions.svg) center / contain no-repeat;
   vertical-align: middle;
-  /* padding: 14px; */
 }
-.base-button--library {
+.base-button--library:before {
   /* 라이브러리 버튼 */
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 28px;
+  height: 28px;
+
   background: url(@/assets/icon/library.svg) center / contain no-repeat;
   vertical-align: middle;
-  /* padding: 14px; */
 }
 </style>

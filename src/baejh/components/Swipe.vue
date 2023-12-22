@@ -144,7 +144,7 @@ const screenActive = ref(false)
 const isModalOpen = ref(false)
 const editCommentIndex = ref(null)
 const editedComment = ref('')
-const newComment = ref('');
+const newComment = ref('')
 
 const handleToggle = (video, index) => {
   video.statistics.like_count++
@@ -157,18 +157,6 @@ const handleToggle = (video, index) => {
   }, 1000)
 }
 
-// const toggleVideo = () => {
-//   const video = myVideo.value
-//   if (video) {
-//     // console.log('toggleVideo called:', isActive);
-//     if (isPlaying.value) {
-//       video.pause()
-//     } else {
-//       video.play()
-//     }
-//     isPlaying.value = !isPlaying.value
-//   }
-// }
 
 // 댓글 수정
 const editComment = (video, commentIndex) => {
@@ -202,16 +190,29 @@ const deleteComment = (video, commentIndex) => {
 const addNewComment = (video) => {
   // 아무 문자 없을 시 등록 안됨
   if (newComment.value.trim() !== '') {
+    const currentDate = new Date();
+  // 현재 시간 설정 
+    const formatter = new Intl.DateTimeFormat('en', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+    const [{ value: month }, , { value: day }, , { value: year }, , { value: hour }, , { value: minute },] = formatter.formatToParts(currentDate);
+    const formattedDate = `${year}-${month}-${day} ${hour}:${minute}`;
+    // 댓글 등록시
     video.comments.push({
       nickName: '@user', // 사용자 이름
-      writeTime: new Date().toLocaleString(), // 현재 시간
+      writeTime: formattedDate, // 현재 시간
       user_comment: newComment.value,
     });
     // 카운트 ++
     video.statistics.comment_count++;
     newComment.value = '';
   }
-}
+};
 
 const commentopenModal = (video) => {
   video.commentModalOpen = true

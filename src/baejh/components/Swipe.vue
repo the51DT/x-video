@@ -37,7 +37,6 @@
               : 'icon-video'
           "
         ></i>
-        <!-- <button @click="toggleVideo">{{ isPlaying ? '일시정지' : '재생' }}</button> -->
         <div class="video-details">
           <h2>{{ video.title }}</h2>
           <p>{{ video.nickName }} &nbsp; • &nbsp; {{ video.uploadtime }}</p>
@@ -141,27 +140,6 @@ const isModalOpen = ref(false)
 const editCommentIndex = ref(null)
 const editedComment = ref('')
 
-onMounted(() => {
-  const swiperInstance = swiperRef.value.swiper
-  if (swiperInstance) {
-    swiperInstance.on('slideChange', () => {
-      console.log('Slide changed!')
-    })
-  }
-})
-
-// const handleToggle = (video) => {
-//   // isActive.value = !isActive.value
-//   console.log(video.active)
-//   // toggle
-//   // video.active = !video.active
-//   // console.log(video.active)
-
-//   // click -> true
-//   video.active = true
-//   video.statistics.like_count++
-// }
-
 const handleToggle = (video, index) => {
   video.statistics.like_count++
   video.active = true
@@ -217,19 +195,16 @@ const deleteComment = (video, commentIndex) => {
 const commentopenModal = (video) => {
   video.commentModalOpen = true
   video.shareModalOpen = false
-  onModalOpen()
 }
 
 const shareopenModal = (video) => {
   video.shareModalOpen = true
   video.commentModalOpen = false
-  onModalOpen()
 }
 
 const closeModal = (video) => {
   video.commentModalOpen = false
   video.shareModalOpen = false
-  onModalClose()
 }
 
 const shareLink = (el) => {

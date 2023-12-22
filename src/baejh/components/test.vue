@@ -68,7 +68,7 @@
               <div v-if="editCommentIndex === commentIndex">
                 <textarea v-model="editedComment"></textarea>
                 <div class="modal-comment--button">
-                  <button @click="saveComment">저장</button>
+                  <button @click="saveComment(video)">저장</button>
                   <button @click="cancelEditComment">취소</button>
                 </div>
               </div>
@@ -141,12 +141,12 @@ const editComment = (video, commentIndex) => {
 }
 
 // 댓글 편집 저장
-// const saveComment = () => {
-//   if (editCommentIndex.value !== null) {
-//     video.comments[editCommentIndex.value].user_comment = editedComment.value;
-//     cancelEditComment();
-//   }
-// };
+const saveComment = (video) => {
+  if (editCommentIndex.value !== null) {
+    video.comments[editCommentIndex.value].user_comment = editedComment.value;
+    cancelEditComment();
+  }
+};
 
 const cancelEditComment = () => {
   editCommentIndex.value = null
@@ -159,6 +159,7 @@ const deleteComment = (video, commentIndex) => {
   video.comments.splice(commentIndex, 1)
   // 카운트 삭제
   video.statistics.comment_count--
+  cancelEditComment();
 }
 
 const onModalOpen = () => {

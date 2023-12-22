@@ -83,7 +83,7 @@
                 </p>
                 <div class="modal-comment--button">
                   <button @click="editComment(video, commentIndex)">
-                    편집
+                    수정
                   </button>
                   <button @click="deleteComment(video, commentIndex)">
                     삭제
@@ -100,6 +100,11 @@
               <div v-else>
                 <p>{{ comment.user_comment }}</p>
               </div>
+            </div>
+            <!-- 댓글 등록 -->
+            <div class="comment-new">
+              <textarea v-model="newComment"></textarea>
+              <button @click="addNewComment(video)">댓글 등록</button>
             </div>
           </div>
         </div>
@@ -139,6 +144,7 @@ const screenActive = ref(false)
 const isModalOpen = ref(false)
 const editCommentIndex = ref(null)
 const editedComment = ref('')
+const newComment = ref('');
 
 const handleToggle = (video, index) => {
   video.statistics.like_count++
@@ -164,13 +170,13 @@ const handleToggle = (video, index) => {
 //   }
 // }
 
-// 댓글 편집
+// 댓글 수정
 const editComment = (video, commentIndex) => {
   editCommentIndex.value = commentIndex
   editedComment.value = video.comments[commentIndex].user_comment
 }
 
-// 댓글 편집 저장
+// 댓글 수정 저장
 const saveComment = (video) => {
   if (editCommentIndex.value !== null) {
     video.comments[editCommentIndex.value].user_comment = editedComment.value
@@ -192,6 +198,21 @@ const deleteComment = (video, commentIndex) => {
   cancelEditComment()
 }
 
+// 댓글 등록
+const addNewComment = (video) => {
+  // 아무 문자 없을 시 등록 안됨
+  if (newComment.value.trim() !== '') {
+    video.comments.push({
+      nickName: '@user', // 사용자 이름
+      writeTime: new Date().toLocaleString(), // 현재 시간
+      user_comment: newComment.value,
+    });
+    // 카운트 ++
+    video.statistics.comment_count++;
+    newComment.value = '';
+  }
+}
+
 const commentopenModal = (video) => {
   video.commentModalOpen = true
   video.shareModalOpen = false
@@ -206,6 +227,7 @@ const closeModal = (video) => {
   video.commentModalOpen = false
   video.shareModalOpen = false
 }
+
 
 const shareLink = (el) => {
   console.log('video.url:', el.url)

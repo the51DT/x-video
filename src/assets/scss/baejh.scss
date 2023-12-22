@@ -221,12 +221,33 @@ video::-webkit-media-controls-fullscreen-button {
         color: rgba($color: #fff, $alpha: 0.7);
         font-size: 12px;
       }
+      textarea {
+        width: 100%;
+        padding: 0px 5px;
+        border: 1px solid #fff;
+        color: #fff;
+        resize: none;
+        overflow: hidden
+      }
     }
-    textarea {
-      width: 100%;
-      border: 1px solid #fff;
-      color: #fff;
-      resize: none;
+    .comment-new {
+      display: flex;
+      justify-content: space-between;  
+      padding-top: 10px;
+      textarea {
+        padding: 0px 5px;
+        width: 83%;
+        height: 30px;
+        border: 1px solid #fff;
+        color: #fff;
+        line-height: 30px;
+        resize: none;
+        overflow: hidden
+      }
+      button {
+        color: rgba($color: #fff, $alpha: 0.7);
+        font-size: 12px;
+      }
     }
   }
   .modal-share {

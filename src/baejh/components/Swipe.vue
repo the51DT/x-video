@@ -10,6 +10,7 @@
     >
       <swiper-slide v-for="(video, index) in videos" :key="index" class="video">
         <video
+          class="swiper-wrapper__slide-video"
           :src="video.url"
           loop
           muted
@@ -70,7 +71,9 @@
         <!-- <div v-if="video.commentModalOpen || video.shareModalOpen" class="swiper-dim"></div> -->
         <div v-if="video.commentModalOpen" class="modal">
           <div class="modal-comment">
-            <button class="button-close" @click="closeModal(video)">닫기</button>
+            <button class="button-close" @click="closeModal(video)">
+              닫기
+            </button>
             <!-- 댓글 -->
             <div
               v-for="(comment, commentIndex) in video.comments"

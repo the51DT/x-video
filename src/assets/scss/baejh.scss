@@ -128,6 +128,8 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
     &--button {
       display: flex;
       gap: 10px;
+      color: rgba($color: #fff, $alpha: 0.7);
+      font-size: 12px;
     }
     .button-close {    
       display: flex;
@@ -141,6 +143,12 @@ video::-webkit-media-controls-fullscreen-button {display: none !important;}
         color: rgba($color: #fff, $alpha: 0.7);
         font-size: 12px;
       }
+    }
+    textarea {
+      width: 100%;
+      border: 1px solid #fff;
+      color: #fff;
+      resize: none;
     }
   }
   &.modal-share {

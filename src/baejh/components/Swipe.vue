@@ -29,18 +29,22 @@
         <div v-if="commentModalOpen || shareModalOpen" class="swiper-dim"></div>
         <div v-if="commentModalOpen" class="modal">
           <div class="modal-comment">
-            <button @click="closeModal">닫기</button>
+            <button class="button-close" @click="closeModal">닫기</button>
             <!-- 댓글 -->
-            <div class="comments">
-              <div v-for="(comment, commentIndex) in video.comments" :key="commentIndex" class="comment">
+            <div v-for="(comment, commentIndex) in video.comments" :key="commentIndex" class="comment">
+              <div class="modal-comment--top">
                 <p class="comment-user">{{ comment.nickName }} &nbsp; • &nbsp; {{ comment.writeTime }}</p>
-                <p>{{ comment.user_comment }}</p>
+                <div class="modal-comment--button"> 
+                  <button @click="editComment(video, commentIndex)">편집</button>
+                  <button @click="deleteComment(video, commentIndex)">삭제</button> 
+                </div>
               </div>
+              <p>{{ comment.user_comment }}</p>
             </div>
           </div>
         </div>
         <div v-if="shareModalOpen" class="modal modal-share">
-          <button @click="closeModal">닫기</button>
+            <button class="button-close" @click="closeModal">닫기</button>
             <!-- 공유 -->
             <div class="share">
               공유
@@ -93,6 +97,25 @@ const toggleVideo = () => {
     }
     isPlaying.value = !isPlaying.value;
   }
+};
+
+// 댓글 편집
+const editComment = (video, commentIndex) => {
+  // 내용 수정 (prompt -> input창으로 수정)
+  const editedComment = prompt('댓글을 수정하세요:', video.comments[commentIndex].user_comment);
+
+  // 사용자가 수정을 취소하지 않은 경우, 댓글을 업데이트합니다.
+  if (editedComment !== null) {
+    video.comments[commentIndex].user_comment = editedComment;
+  }
+};
+
+// 댓글 삭제
+const deleteComment = (video, commentIndex) => {
+  // 배열에서 해당 댓글 삭제
+  video.comments.splice(commentIndex, 1);
+  // 카운트 삭제
+  video.statistics.comment_count--
 };
 
 const onModalOpen = () => {

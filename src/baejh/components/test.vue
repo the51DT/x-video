@@ -39,7 +39,16 @@
                   <button @click="deleteComment(video, commentIndex)">삭제</button> 
                 </div>
               </div>
-              <p>{{ comment.user_comment }}</p>
+              <div v-if="editCommentIndex === commentIndex">
+                <textarea v-model="editedComment"></textarea>
+                <div class="modal-comment--button"> 
+                  <button @click="saveComment">저장</button>
+                  <button @click="cancelEditComment">취소</button>
+                </div>
+              </div>
+              <div v-else>
+                <p>{{ comment.user_comment }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -74,6 +83,9 @@ const shareModalOpen = ref(false);
 const myVideo = ref(null);
 const isPlaying = ref(false);
 const isModalOpen = ref(false);
+const editCommentIndex = ref(null);
+const editedComment = ref('');
+
 
 const swiperOptions = {
   direction: 'vertical',
@@ -99,12 +111,33 @@ const toggleVideo = () => {
   }
 };
 
+
+// 댓글 편집
+const editComment = (video, commentIndex) => {
+  editCommentIndex.value = commentIndex;
+  editedComment.value = video.comments[commentIndex].user_comment;
+};
+
+// 댓글 편집 저장
+const saveComment = () => {
+  if (editCommentIndex.value !== null) {
+    video.comments[editCommentIndex.value].user_comment = editedComment.value;
+    cancelEditComment();
+  }
+};
+
+const cancelEditComment = () => {
+  editCommentIndex.value = null;
+  editedComment.value = '';
+};
+
+
 // 댓글 삭제
 const deleteComment = (video, commentIndex) => {
   // 배열에서 해당 댓글 삭제
   video.comments.splice(commentIndex, 1);
   // 카운트 삭제
-  video.statistics.comment_count--
+  videos[0].statistics.comment_count--;
 };
 
 const onModalOpen = () => {

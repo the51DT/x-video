@@ -124,14 +124,14 @@
 </template>
 
 <script setup>
-import BaseButton from '@/baejh/components/BaseButton.vue'
+import BaseButton from '@/layouts/components/BaseButton.vue'
 import { defineProps, ref, onMounted, computed } from 'vue'
 import SwiperCore, { Mousewheel } from 'swiper/core'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.css'
 
-import VideoData from '@/baejh/components/videoList.js'
+import VideoData from '@/layouts/components/videoList.js'
 
 SwiperCore.use([Mousewheel])
 

@@ -14,11 +14,10 @@
 </template>
 
 <script setup>
-import navigation from '@/baejh/components/Navigation.vue'
-import swipe from '@/baejh/components/Swipe.vue'
-import test from '@/baejh/components/test.vue'
-import VideoData from '@/baejh/components/videoList.js'
-import '@/assets/scss/baejh.scss'
+import navigation from '@/layouts/components/Navigation.vue'
+import swipe from '@/layouts/components/Swipe.vue'
+import VideoData from '@/layouts/components/videoList.js'
+import '@/assets/scss/shots.scss'
 import { ref } from 'vue'
 
 const videoList = ref(VideoData)

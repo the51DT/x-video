@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import BaseButton from '@/baejh/components/BaseButton.vue'
+import BaseButton from '@/layouts/components/BaseButton.vue'
 import { ref } from 'vue'
 
 const uploadModalOpen = ref(false)

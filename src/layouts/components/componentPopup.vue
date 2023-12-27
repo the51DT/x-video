@@ -9,7 +9,9 @@
         </div>
         <div class="navigation-modal__util">
           <button class="navigation-modal__btn-close">
-            <span class="a11y">close</span>
+            <router-link to="/shots">
+              <span class="a11y">close</span>
+            </router-link>
           </button>
         </div>
       </div>

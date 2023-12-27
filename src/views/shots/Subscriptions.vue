@@ -15,6 +15,6 @@
 <script setup>
 import navigation from '@/layouts/components/Navigation.vue'
 import componentPopup from '@/layouts/components/componentPopup.vue'
-import '@/assets/scss/shots.scss'
+import '@/assets/scss/index.scss'
 import { ref } from 'vue'
 </script>

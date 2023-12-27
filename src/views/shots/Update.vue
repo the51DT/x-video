@@ -21,7 +21,7 @@ import navigation from '@/layouts/components/Navigation.vue'
 import swipe from '@/layouts/components/Swipe.vue'
 import componentPopup from '@/layouts/components/componentPopup.vue'
 import VideoData from '@/layouts/components/videoList.js'
-import '@/assets/scss/shots.scss'
+import '@/assets/scss/index.scss'
 import { ref } from 'vue'
 
 const videoList = ref(VideoData)

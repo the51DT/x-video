@@ -11,6 +11,11 @@
           <button class="navigation-modal__btn-close" @click="navPopupClose">
             <span class="a11y">close</span>
           </button>
+          <!-- <button class="navigation-modal__btn-close">
+            <router-link to="/shots">
+              <span class="a11y">close</span>
+            </router-link>
+          </button> -->
         </div>
       </div>
     </div>

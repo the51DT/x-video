@@ -11,16 +11,8 @@
 
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
-
-// const props = defineProps(['type', 'isActive', 'disabled'])
 const props = defineProps(['type', 'isActive', 'disabled'])
-// const likeActive = defineProps()
 const emit = defineEmits()
-
-// const computedClasses = ref([
-//   'base-button',
-//   `base-button--${props.type} ${active}`,
-// ])
 
 const toggle = () => {
   console.log('Button clicked')

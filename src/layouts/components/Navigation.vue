@@ -11,7 +11,9 @@
       </base-button>
     </div>
     <div class="navigation-button navigation-button--update">
-      <base-button type="plus" @click="handlePopupUpload"></base-button>
+      <base-button type="plus" @click="handlePopupUpload">
+        <span class="a11y">upload</span></base-button
+      >
     </div>
     <div class="navigation-button">
       <base-button type="subscriptions" @click="handlePopupSubscriptions"
@@ -28,16 +30,30 @@
     <button @click="closeModal">닫기</button>
     <div class="upload">영상 업로드</div>
   </div> -->
-  <componentPopup
+  <!-- <componentPopup
     type="full"
     v-if="popupUpload"
-    @closePop="popupUpload.value = false"
+    @closePopup="popupupload = false"
     >test1</componentPopup
+  > -->
+  <componentPopup
+    type="full"
+    v-if="popupupload"
+    @closePopup="popupupload = false"
+    >popupupload</componentPopup
   >
-  <componentPopup type="bottomLayer" v-if="popupSubscriptions"
+  <componentPopup
+    type="bottomLayer"
+    v-if="popupSubscriptions"
+    @closePopup="popupSubscriptions = false"
     >test2</componentPopup
   >
-  <componentPopup type="full" v-if="popupLibrary">test3</componentPopup>
+  <componentPopup
+    type="full"
+    v-if="popupLibrary"
+    @closePopup="popupLibrary = false"
+    >test3</componentPopup
+  >
 </template>
 
 <script setup>
@@ -68,10 +84,8 @@ const handlePopupSubscriptions = () => {
 }
 
 const handlePopupLibrary = () => {
-  handlePopupLibrary.value = true
+  popupLibrary.value = true
 }
-
-const close = () => {}
 </script>
 
 <style lang="scss">

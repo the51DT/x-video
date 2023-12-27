@@ -8,7 +8,7 @@
           <slot></slot>
         </div>
         <div class="navigation-modal__util">
-          <button class="navigation-modal__btn-close" @click="closePop">
+          <button class="navigation-modal__btn-close" @click="closePopup">
             <span class="a11y">close</span>
           </button>
           <!-- <button class="navigation-modal__btn-close">
@@ -26,20 +26,15 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
 
-const props = defineProps(['type', 'id', 'isOpen'])
-const emits = defineEmits(['closePop'])
+const props = defineProps(['type'])
+const emits = defineEmits(['closePopup'])
 
 console.log(props)
 
-const closePop = () => {
+const closePopup = () => {
   console.log('closePop')
-  emits('closePop')
+  emits('closePopup')
 }
-
-// const isDisplay = false
-// const navPopupClose = () => {
-//   isDisplay.value = false
-// }
 </script>
 <style lang="scss">
 $desktop: 'screen and (min-width : 769px)';

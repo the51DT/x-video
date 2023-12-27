@@ -7,14 +7,14 @@
         </div>
       </div>
       <div class="navigation">
-        <navigation></navigation>
+        <navigation />
       </div>
       <div v-if="popupOpen" class="popup">
         <div class="popup-detail">
-          <p class="content">보다 더 원활한 서비스를 위하여<br/>X-VIDEO는 쿠키를 사용합니다</p>
-          <button class="button-close" @click="closeModal">
-            허용
-          </button>
+          <p class="content">
+            보다 더 원활한 서비스를 위하여<br />X-VIDEO는 쿠키를 사용합니다
+          </p>
+          <button class="button-close" @click="closeModal">허용</button>
         </div>
       </div>
     </div>
@@ -28,10 +28,15 @@ import VideoData from '@/layouts/components/videoList.js'
 import '@/assets/scss/shots.scss'
 import { ref } from 'vue'
 
-const videoList = ref(VideoData)
 const popupOpen = ref(true)
+const videoList = ref(VideoData)
+// const popupUpdate = ref(false)
+// const popupSubscriptions = ref(false)
+// const popupLibrary = ref(false)
+const { emit } = defineEmits()
 
 const closeModal = () => {
-  popupOpen.value = false;
+  popupOpen.value = false
+  console.log('shots.vue')
 }
 </script>

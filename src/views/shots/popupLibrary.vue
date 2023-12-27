@@ -9,7 +9,7 @@
       <div class="navigation">
         <navigation></navigation>
       </div>
-      <componentPopup type="bottomLayer"></componentPopup>
+      <componentPopup type="bottomLayer" id="popupLibrary"></componentPopup>
     </div>
   </div>
 </template>

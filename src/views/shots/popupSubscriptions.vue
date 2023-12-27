@@ -9,8 +9,10 @@
       <div class="navigation">
         <navigation></navigation>
       </div>
-      <!-- 텔레포트 -->
-      <componentPopup type="bottomLayer"></componentPopup>
+      <!-- <componentPopup
+        type="bottomLayer"
+        id="popupSubscriptions"
+      ></componentPopup> -->
     </div>
   </div>
 </template>

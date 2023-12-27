@@ -14,7 +14,6 @@ import { ref, defineProps, defineEmits } from 'vue'
 
 // const props = defineProps(['type', 'isActive', 'disabled'])
 const props = defineProps(['type', 'isActive', 'disabled'])
-console.log(props.active)
 // const likeActive = defineProps()
 const emit = defineEmits()
 
@@ -26,6 +25,7 @@ const emit = defineEmits()
 const toggle = () => {
   console.log('Button clicked')
   emit('toggle', !props.active)
+  console.log('!props.active::', !props.active)
 }
 </script>
 

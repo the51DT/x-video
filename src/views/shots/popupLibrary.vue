@@ -14,7 +14,11 @@
           <div class="library">
             <p class="user-library">최근 시청한 목록</p>
             <div class="library-list">
-              <libraryList v-for="video in VideoData" :key="video.id" :video="video" />
+              <libraryList
+                v-for="video in VideoData"
+                :key="video.id"
+                :video="video"
+              />
             </div>
           </div>
         </componentPopup>

@@ -1,23 +1,43 @@
 <template>
   <div class="navigation-bar">
-    <div class="navigation-button">
-      <base-button type="home"><span>home</span></base-button>
+    <!-- nav popup type -->
+    <!-- <div class="navigation-button">
+      <base-button type="home" @click="handlePopupHome"
+        ><span>home</span></base-button
+      >
     </div>
     <div class="navigation-button">
-      <base-button type="shots">
+      <base-button type="shots" @click="handlePopupShots">
         <span>shots</span>
       </base-button>
     </div>
     <div class="navigation-button navigation-button--update">
-      <!-- <base-button type="plus" @click="uploadopenModal()"
-        ></base-button
-      > -->
+      <base-button type="plus" @click="handlePopupUpload">
+        <span class="a11y">upload</span></base-button
+      >
+    </div>
+    <div class="navigation-button">
+      <base-button type="subscriptions" @click="handlePopupSubscriptions"
+        ><span>subscriptions</span></base-button
+      >
+    </div>
+    <div class="navigation-button">
+      <base-button type="library" @click="handlePopupLibrary"
+        ><span>library</span></base-button
+      >
+    </div> -->
+    <div class="navigation-button">
+      <base-button type="home" to="/home"> <span>home</span></base-button>
+    </div>
+    <div class="navigation-button">
+      <base-button type="shots" to="/shots"> <span>shots</span></base-button>
+    </div>
+    <div class="navigation-button navigation-button--update">
       <router-link to="/popupUpdate" class="base-button base-button--plus"
         ><span class="a11y">update</span></router-link
       >
     </div>
     <div class="navigation-button">
-      <!-- <base-button type="subscriptions"><span>subscriptions</span></base-button> -->
       <router-link
         to="/popupSubscriptions"
         class="base-button base-button--subscriptions"
@@ -25,36 +45,81 @@
       >
     </div>
     <div class="navigation-button">
-      <!-- <base-button type="library"><span>library</span></base-button> -->
       <router-link to="/popupLibrary" class="base-button base-button--library"
         ><span>library</span></router-link
       >
     </div>
   </div>
-  <!-- 모달창 -->
-  <div v-if="uploadModalOpen" class="modal modal-upload">
-    <button @click="closeModal">닫기</button>
-    <!-- 업로드 -->
-    <div class="upload">영상 업로드</div>
-  </div>
+  <!-- nav popup type -->
+  <!-- <componentPopup
+    type="full"
+    v-if="popupupload"
+    @closePopup="popupupload = false"
+    >popupupload</componentPopup
+  >
+  <componentPopup
+    type="bottomLayer"
+    v-if="popupSubscriptions"
+    @closePopup="popupSubscriptions = false"
+    >test2</componentPopup
+  >
+  <componentPopup
+    type="full"
+    v-if="popupLibrary"
+    @closePopup="popupLibrary = false"
+  >
+    <div class="profile">
+      <div class="icon-user"></div>
+      <div class="user">
+        <p class="user-name">Username</p>
+        <p class="user-id">@user</p>
+        <p class="user-subscribers">12,345 subscribers</p>
+      </div>
+    </div>
+    <div class="library">
+      <p class="user-library">최근 시청한 목록</p>
+      <div class="library-list">
+        <libraryList
+          v-for="video in VideoData"
+          :key="video.id"
+          :video="video"
+        />
+      </div>
+    </div>
+  </componentPopup> -->
 </template>
 
 <script setup>
 import BaseButton from '@/layouts/components/BaseButton.vue'
-import { ref } from 'vue'
+import componentPopup from '@/layouts/components/componentPopup.vue'
+import { ref, defineEmits } from 'vue'
 
-const uploadModalOpen = ref(false)
-const mypageModalOpen = ref(false)
+// nav popup type
+// const popupHome = ref(false)
+// const popupShots = ref(false)
+// const popupupload = ref(false)
+// const popupSubscriptions = ref(false)
+// const popupLibrary = ref(false)
 
-const uploadopenModal = () => {
-  uploadModalOpen.value = true
-  mypageModalOpen.value = false
-}
+// const handlePopupHome = () => {
+//   popupHome.value = true
+// }
 
-const closeModal = () => {
-  uploadModalOpen.value = false
-  mypageModalOpen.value = false
-}
+// const handlePopupShots = () => {
+//   popupShots.value = true
+// }
+
+// const handlePopupUpload = () => {
+//   popupupload.value = true
+// }
+
+// const handlePopupSubscriptions = () => {
+//   popupSubscriptions.value = true
+// }
+
+// const handlePopupLibrary = () => {
+//   popupLibrary.value = true
+// }
 </script>
 
 <style lang="scss">

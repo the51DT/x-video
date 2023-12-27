@@ -93,9 +93,10 @@
 import Axios from "axios"
 import { ref, watch, computed, onMounted, nextTick, defineProps, defineEmits } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useUsersStore } from "@/stores/users"
-const userStore = useUsersStore()
-import {isKor, isPw, isEmail} from "@/views/shortsApp/assets/js/check"
+import { useUserStore } from "@/stores/user"
+const userStore = useUserStore()
+import {isKor, isPw, isEmail} from "@/utils/check"
+import '@/assets/scss/shots.scss'
 
 const getMember = JSON.parse(localStorage.getItem('member'))
 const MemberList = getMember._value

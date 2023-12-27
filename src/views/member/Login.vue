@@ -80,7 +80,7 @@ import { ref, watch, computed, onMounted, nextTick, defineProps, defineEmits } f
 import { storeToRefs } from 'pinia'
 import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
-
+import '@/assets/scss/shots.scss'
 import {isKor, isPw, isEmail} from "@/utils/check"
 
 const error = ref({

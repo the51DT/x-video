@@ -1,0 +1,77 @@
+{"users": [
+    {"userId": "manage@the-51.com", "password": "1234", "name": "manage", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "hongsh@the-51.com", "password": "1234",  "name": "홍성호", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "bchoi@the-51.com", "password": "1234",  "name": "최봄", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "jhbae@the-51.com", "password": "1234",  "name": "배정현", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "ybjeong@the-51.com", "password": "1234",  "name": "정영빈", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "chulsoo@the-51.com", "password": "1234",  "name": "배철수", "uploaded": [],"liked": [], "subscribed": []},
+    {"userId": "hyejin@the-51.com", "password": "1234",  "name": "김혜진", "uploaded": [],"liked": [], "subscribed": []}
+],
+"posts": [
+  {
+	"id": 1,
+	"videoType": "mp4",
+	"title": "싸이 춤 따라하는 어머니! 멋지다",
+	"url": "./video/1.mp4",
+	"nickName": "@Jone",
+	"uploadtime": "2023-12-08 12:00",
+	"videoDescription": "나래 컴퓨터 아슬라 도서관 다솜 아리아 나비잠 가온누리 소솜 사과 아리아 별하 그루잠 소록소록 가온해 산들림 로운 컴퓨터",
+	"videoTag": "#태그1",
+	"statistics": {
+		"comment_count": 3,
+		"like_count": 5,
+		"play_count": 0,
+		"share_count": 0
+	},
+	"comments": [
+		{
+			"nickName": "@Jone", 
+			"writeTime": "2023-12-08 12:30",
+			"user_comment": "1등"
+		},
+		{
+			"nickName": "@andraa", 
+			"writeTime": "2023-12-09 12:30",
+			"user_comment": "도르레 예그리나 여우별 소록소록 나비잠 우리는 아련 다솜 곰다시 아련 안녕 미쁘다 우리는 사과"
+		},
+		{
+			"nickName": "@kkkkkkk", 
+			"writeTime": "2023-12-09 12:40",
+			"user_comment": "아리아 도서 여우별 감또개 컴퓨터 우리는 별하 바람꽃 아슬라 곰다시 별하 도담도담 가온해 별빛"
+		}               
+	],
+	"playing": false,
+	"active": false
+  },
+  {
+    "id": 2,
+    "videoType": "mp4",
+    "title": "싸이 춤 따라하는 어머니! 멋지다2",
+    "url": "./video/2.mp4",
+    "nickName": "@Jone",
+    "uploadtime": "2023-12-08 12:00",
+    "videoDescription": "나래 컴퓨터 아슬라 도서관 다솜 아리아 나비잠 가온누리 소솜 사과 아리아 별하 그루잠 소록소록 가온해 산들림 로운 컴퓨터",
+    "videoTag": "#태그1",
+    "statistics": {
+      "comment_count": 2,
+      "like_count": 3,
+      "play_count": 0,
+      "share_count": 0
+    },
+    "comments": [
+      {
+        "nickName": "@Jone", 
+        "writeTime": "2023-12-08 12:30",
+        "user_comment": "1등"
+      },
+      {
+        "nickName": "@andraa", 
+        "writeTime": "2023-12-09 12:30",
+        "user_comment": "도르레 예그리나 여우별 소록소록 나비잠 우리는 아련 다솜 곰다시 아련 안녕 미쁘다 우리는 사과"
+      }          
+    ],
+    "playing": false,
+    "active": false
+    }  
+]
+}

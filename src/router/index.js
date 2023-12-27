@@ -4,6 +4,8 @@ import shots from '@/views/shots/Shots.vue'
 import popupLibrary from '@/views/shots/popupLibrary.vue'
 import popupSubscriptions from '@/views/shots/popupSubscriptions.vue'
 import popupUpdate from '@/views/shots/popupUpdate.vue'
+import Signup from '@/views/member/Login.vue'
+import Register from '@/views/member/Join.vue'
 // import subscriptions from "@/views/shots/Subscriptions.vue";
 // import library from "@/views/shots/Library.vue";
 
@@ -34,6 +36,16 @@ const routes = [
     name: 'popupUpdate',
     component: popupUpdate,
   },
+  {
+    path: '/Signup',
+    name: 'Signup',
+    component: Signup,
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: Register,
+  }
   // {
   //     path: "/subscriptions",
   //     name: "subscriptions",

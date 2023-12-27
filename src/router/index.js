@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import home from '@/views/main/main.vue'
+import main from '@/views/main/main.vue'
+import home from '@/views/shots/Home.vue'
 import shots from '@/views/shots/Shots.vue'
-import popupLibrary from '@/views/shots/popupLibrary.vue'
-import popupSubscriptions from '@/views/shots/popupSubscriptions.vue'
-import popupUpdate from '@/views/shots/popupUpdate.vue'
+import Library from '@/views/shots/Library.vue'
+import Subscriptions from '@/views/shots/Subscriptions.vue'
+import Update from '@/views/shots/Update.vue'
 import Signup from '@/views/member/Login.vue'
 import Register from '@/views/member/Join.vue'
 // import subscriptions from "@/views/shots/Subscriptions.vue";
@@ -12,7 +13,7 @@ import Register from '@/views/member/Join.vue'
 // 라우터
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: home,
   },
@@ -22,19 +23,19 @@ const routes = [
     component: shots,
   },
   {
-    path: '/popupLibrary',
-    name: 'popupLibrary',
-    component: popupLibrary,
+    path: '/Library',
+    name: 'Library',
+    component: Library,
   },
   {
-    path: '/popupSubscriptions',
-    name: 'popupSubscriptions',
-    component: popupSubscriptions,
+    path: '/Subscriptions',
+    name: 'Subscriptions',
+    component: Subscriptions,
   },
   {
-    path: '/popupUpdate',
-    name: 'popupUpdate',
-    component: popupUpdate,
+    path: '/Update',
+    name: 'Update',
+    component: Update,
   },
   {
     path: '/Signup',

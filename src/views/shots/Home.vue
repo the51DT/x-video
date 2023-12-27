@@ -5,16 +5,7 @@
         <navigation></navigation>
       </div>
       <componentPopup type="full">
-        <div class="library-wrap">
-          <div class="profile">
-            <div class="icon-user">user icon</div>
-            <div class="user">
-              <p class="user-name">Username</p>
-              <p class="user-subscribers">420 thousand subscribers</p>
-              <p class="user-subscribers"></p>
-            </div>
-          </div>
-          <div class="video-list"></div>
+        <div class="subscriptions-wrap">
         </div>
       </componentPopup>
     </div>

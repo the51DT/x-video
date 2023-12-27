@@ -2,7 +2,7 @@
   <div class="navigation-bar">
     <!-- nav popup type -->
     <!-- <div class="navigation-button">
-      <base-button type="home" @click="handlePopupHome"
+      <base-button type="home" @click="handlehome"
         ><span>home</span></base-button
       >
     </div>
@@ -17,37 +17,47 @@
       >
     </div>
     <div class="navigation-button">
-      <base-button type="subscriptions" @click="handlePopupSubscriptions"
+      <base-button type="subscriptions" @click="handleSubscriptions"
         ><span>subscriptions</span></base-button
       >
     </div>
     <div class="navigation-button">
-      <base-button type="library" @click="handlePopupLibrary"
+      <base-button type="library" @click="handleLibrary"
         ><span>library</span></base-button
       >
     </div> -->
     <div class="navigation-button">
-      <base-button type="home" to="/home"> <span>home</span></base-button>
+      <router-link to="/home">
+        <base-button type="home"> 
+          <span>home</span>
+        </base-button>
+      </router-link>
     </div>
     <div class="navigation-button">
-      <base-button type="shots" to="/shots"> <span>shots</span></base-button>
+      <router-link to="/shots">
+        <base-button type="shots"> 
+          <span>shots</span>
+        </base-button>
+      </router-link>
     </div>
     <div class="navigation-button navigation-button--update">
-      <router-link to="/popupUpdate" class="base-button base-button--plus"
-        ><span class="a11y">update</span></router-link
-      >
+      <router-link to="/Update">
+        <base-button type="plus"></base-button>
+      </router-link>
     </div>
     <div class="navigation-button">
-      <router-link
-        to="/popupSubscriptions"
-        class="base-button base-button--subscriptions"
-        ><span>subscriptions</span></router-link
-      >
+      <router-link to="/Subscriptions">
+        <base-button type="subscriptions">
+          <span>subscriptions</span>  
+        </base-button>
+      </router-link>
     </div>
     <div class="navigation-button">
-      <router-link to="/popupLibrary" class="base-button base-button--library"
-        ><span>library</span></router-link
-      >
+      <router-link to="/Library">
+        <base-button type="library">
+          <span>library</span>  
+        </base-button>
+      </router-link>
     </div>
   </div>
   <!-- nav popup type -->
@@ -59,14 +69,14 @@
   >
   <componentPopup
     type="bottomLayer"
-    v-if="popupSubscriptions"
-    @closePopup="popupSubscriptions = false"
+    v-if="Subscriptions"
+    @closePopup="Subscriptions = false"
     >test2</componentPopup
   >
   <componentPopup
     type="full"
-    v-if="popupLibrary"
-    @closePopup="popupLibrary = false"
+    v-if="Library"
+    @closePopup="Library = false"
   >
     <div class="profile">
       <div class="icon-user"></div>
@@ -95,14 +105,14 @@ import componentPopup from '@/layouts/components/componentPopup.vue'
 import { ref, defineEmits } from 'vue'
 
 // nav popup type
-// const popupHome = ref(false)
+// const home = ref(false)
 // const popupShots = ref(false)
 // const popupupload = ref(false)
-// const popupSubscriptions = ref(false)
-// const popupLibrary = ref(false)
+// const Subscriptions = ref(false)
+// const Library = ref(false)
 
-// const handlePopupHome = () => {
-//   popupHome.value = true
+// const handlehome = () => {
+//   home.value = true
 // }
 
 // const handlePopupShots = () => {
@@ -113,12 +123,12 @@ import { ref, defineEmits } from 'vue'
 //   popupupload.value = true
 // }
 
-// const handlePopupSubscriptions = () => {
-//   popupSubscriptions.value = true
+// const handleSubscriptions = () => {
+//   Subscriptions.value = true
 // }
 
-// const handlePopupLibrary = () => {
-//   popupLibrary.value = true
+// const handleLibrary = () => {
+//   Library.value = true
 // }
 </script>
 

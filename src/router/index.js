@@ -36,17 +36,17 @@ const routes = [
     path: '/Update',
     name: 'Update',
     component: Update,
+  },
+  {
+    path: '/Signup',
+    name: 'Signup',
+    component: Signup,
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: Register,
   }
-  // {
-  //   path: '/Signup',
-  //   name: 'Signup',
-  //   component: Signup,
-  // },
-  // {
-  //   path: '/Register',
-  //   name: 'Register',
-  //   component: Register,
-  // }
   // {
   //     path: "/subscriptions",
   //     name: "subscriptions",

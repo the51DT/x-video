@@ -1,7 +1,7 @@
 <template>
   
   <div class="video-list">
-    <div class="video" @mouseover="playVideo" @mouseout="pauseVideo">
+    <div class="video">
       <img
         class="thumbnail"
         :src="video.thumbnail"
@@ -9,10 +9,10 @@
       />
       <video
         class="video-player"
-        v-if="video.playing"
         :src="video.url"
         autoplay
-        @ended="pauseVideo"
+        muted
+        loop
       ></video>
       <div class="video-details">
         <h2>{{ video.title }}</h2>
@@ -23,15 +23,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 const props = defineProps(['video']);
-
-const playVideo = () => {
-  props.video.playing = true;
-};
-
-const pauseVideo = () => {
-  props.video.playing = false;
-};
 </script>

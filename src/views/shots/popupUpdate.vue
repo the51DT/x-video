@@ -9,7 +9,9 @@
       <div class="navigation">
         <navigation></navigation>
       </div>
-      <componentPopup type="full"></componentPopup>
+      <componentPopup type="full" id="popupUpdate">
+        <p>test popupUpdate</p>
+      </componentPopup>
     </div>
   </div>
 </template>

@@ -7,13 +7,19 @@
           <!-- 팝업 컨텐츠 영역 slot 으로 추가  -->
           <slot></slot>
         </div>
-        <div class="navigation-modal__util">
+        <!-- <div class="navigation-modal__util">
+          // 1
+          <button class="navigation-modal__btn-close" @click="closePopup">
+            <span class="a11y">close</span>
+          </button>
+
+          // 2
           <button class="navigation-modal__btn-close">
             <router-link to="/shots">
               <span class="a11y">close</span>
             </router-link>
-          </button>
-        </div>
+          </button> 
+        </div> -->
       </div>
     </div>
     <div class="navigation-modal__dim" v-if="!type"></div>
@@ -21,15 +27,17 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['type'])
-// const emit = defineEmits()
+const emits = defineEmits(['closePopup'])
 
-// const toggle = () => {
-//   console.log('Button clicked')
-//   emit('toggle', !props.active)
-// }
+console.log(props)
+
+const closePopup = () => {
+  console.log('closePop')
+  emits('closePopup')
+}
 </script>
 <style lang="scss">
 $desktop: 'screen and (min-width : 769px)';
@@ -43,6 +51,12 @@ $desktop: 'screen and (min-width : 769px)';
   max-width: 360px;
   max-height: 720px;
   transform: translate(-50%, -50%);
+  &.hide {
+    display: none;
+  }
+  &.show {
+    display: block;
+  }
   &__inner {
     width: 100%;
     height: 100%;

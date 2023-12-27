@@ -14,8 +14,7 @@
               <p class="user-subscribers"></p>
             </div>
           </div>
-          <div class="video-list">
-          </div>
+          <div class="video-list"></div>
         </div>
       </componentPopup>
     </div>

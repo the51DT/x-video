@@ -1,0 +1,112 @@
+.library-wrap {
+  .navigation-modal__container {
+    background-color: rgba($color: #161722, $alpha: 1);
+    color: #fff;
+  }
+  .icon {
+    &-user {
+      width: 50px;
+      height: 50px;
+      background: url('/src/assets/icon/user.svg') center / contain no-repeat;
+    }
+  }
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &-name {
+      color: #FFF;
+      text-align: center;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &-id {
+      color: #8E8E8E;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &-subscribers {
+      color: #df3939;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &-library{
+      margin: 15px -35px;
+      color: #8E8E8E;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .profile {
+    display: flex;
+    gap: 17px;
+    align-items: center;
+  }
+  .library {
+    .library-list {
+      height: 520px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 -40px;
+      overflow: hidden;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .video-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      .video {
+        position: relative;
+        width: 120px;
+        overflow: hidden;
+        .thumbnail {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        &-player {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: none;
+        }
+        &-details {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          box-sizing: border-box;
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+          h2 {
+            margin: 0;
+            font-size: 16px;
+          }
+          p {
+            margin: 5px 0 0;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .video:hover .video-details {
+      visibility: visible;
+    }
+  }
+}

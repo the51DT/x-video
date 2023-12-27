@@ -23,9 +23,10 @@ video::-webkit-media-controls-fullscreen-button {
   display: none !important;
 }
 /* 스크롤 */
-.scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-}
+  width: 0px;
+} 
 
 .phone-container {
   display: flex;
@@ -159,6 +160,7 @@ video::-webkit-media-controls-fullscreen-button {
   position: absolute;
   left: 0;
   bottom: 0;
+  z-index: 70;
   padding: 7px 14px;
   width: 100%;
   height: 58px;

@@ -1,6 +1,7 @@
 <template>
   <div class="navigation-bar">
-    <div class="navigation-button">
+    <!-- nav popup type -->
+    <!-- <div class="navigation-button">
       <base-button type="home" @click="handlePopupHome"
         ><span>home</span></base-button
       >
@@ -24,19 +25,33 @@
       <base-button type="library" @click="handlePopupLibrary"
         ><span>library</span></base-button
       >
+    </div> -->
+    <div class="navigation-button">
+      <base-button type="home" to="/home"> <span>home</span></base-button>
+    </div>
+    <div class="navigation-button">
+      <base-button type="shots" to="/shots"> <span>shots</span></base-button>
+    </div>
+    <div class="navigation-button navigation-button--update">
+      <router-link to="/popupUpdate" class="base-button base-button--plus"
+        ><span class="a11y">update</span></router-link
+      >
+    </div>
+    <div class="navigation-button">
+      <router-link
+        to="/popupSubscriptions"
+        class="base-button base-button--subscriptions"
+        ><span>subscriptions</span></router-link
+      >
+    </div>
+    <div class="navigation-button">
+      <router-link to="/popupLibrary" class="base-button base-button--library"
+        ><span>library</span></router-link
+      >
     </div>
   </div>
-  <!-- <div v-if="uploadModalOpen" class="modal modal-upload">
-    <button @click="closeModal">닫기</button>
-    <div class="upload">영상 업로드</div>
-  </div> -->
+  <!-- nav popup type -->
   <!-- <componentPopup
-    type="full"
-    v-if="popupUpload"
-    @closePopup="popupupload = false"
-    >test1</componentPopup
-  > -->
-  <componentPopup
     type="full"
     v-if="popupupload"
     @closePopup="popupupload = false"
@@ -52,8 +67,26 @@
     type="full"
     v-if="popupLibrary"
     @closePopup="popupLibrary = false"
-    >test3</componentPopup
   >
+    <div class="profile">
+      <div class="icon-user"></div>
+      <div class="user">
+        <p class="user-name">Username</p>
+        <p class="user-id">@user</p>
+        <p class="user-subscribers">12,345 subscribers</p>
+      </div>
+    </div>
+    <div class="library">
+      <p class="user-library">최근 시청한 목록</p>
+      <div class="library-list">
+        <libraryList
+          v-for="video in VideoData"
+          :key="video.id"
+          :video="video"
+        />
+      </div>
+    </div>
+  </componentPopup> -->
 </template>
 
 <script setup>
@@ -61,31 +94,32 @@ import BaseButton from '@/layouts/components/BaseButton.vue'
 import componentPopup from '@/layouts/components/componentPopup.vue'
 import { ref, defineEmits } from 'vue'
 
-const popupHome = ref(false)
-const popupShots = ref(false)
-const popupupload = ref(false)
-const popupSubscriptions = ref(false)
-const popupLibrary = ref(false)
+// nav popup type
+// const popupHome = ref(false)
+// const popupShots = ref(false)
+// const popupupload = ref(false)
+// const popupSubscriptions = ref(false)
+// const popupLibrary = ref(false)
 
-const handlePopupHome = () => {
-  popupHome.value = true
-}
+// const handlePopupHome = () => {
+//   popupHome.value = true
+// }
 
-const handlePopupShots = () => {
-  popupShots.value = true
-}
+// const handlePopupShots = () => {
+//   popupShots.value = true
+// }
 
-const handlePopupUpload = () => {
-  popupupload.value = true
-}
+// const handlePopupUpload = () => {
+//   popupupload.value = true
+// }
 
-const handlePopupSubscriptions = () => {
-  popupSubscriptions.value = true
-}
+// const handlePopupSubscriptions = () => {
+//   popupSubscriptions.value = true
+// }
 
-const handlePopupLibrary = () => {
-  popupLibrary.value = true
-}
+// const handlePopupLibrary = () => {
+//   popupLibrary.value = true
+// }
 </script>
 
 <style lang="scss">

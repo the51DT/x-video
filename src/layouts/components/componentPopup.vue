@@ -7,16 +7,19 @@
           <!-- 팝업 컨텐츠 영역 slot 으로 추가  -->
           <slot></slot>
         </div>
-        <div class="navigation-modal__util">
+        <!-- <div class="navigation-modal__util">
+          // 1
           <button class="navigation-modal__btn-close" @click="closePopup">
             <span class="a11y">close</span>
           </button>
-          <!-- <button class="navigation-modal__btn-close">
+
+          // 2
+          <button class="navigation-modal__btn-close">
             <router-link to="/shots">
               <span class="a11y">close</span>
             </router-link>
-          </button> -->
-        </div>
+          </button> 
+        </div> -->
       </div>
     </div>
     <div class="navigation-modal__dim" v-if="!type"></div>

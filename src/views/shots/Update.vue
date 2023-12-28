@@ -76,7 +76,7 @@
               </button>
 
               <router-link
-                to="/home"
+                to="/"
                 class="update__form__button update__form__button--cancel"
               >
                 <span class="update__form__button__text">Cancel</span>

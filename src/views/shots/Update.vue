@@ -3,6 +3,8 @@
     <div class="phone">
       <div class="screen">
         <div class="update-wrap">
+          <Title :level="2" pageTitle="UPDATE" />
+          <p class="page-desc">컨텐츠를 추가할 수 있습니다.</p>
           <div class="update__form">
             <componentInput
               v-model="vSelected"
@@ -38,9 +40,9 @@
               <componentInput
                 v-model="vtext"
                 inputType="text"
-                labelTitle="youtube"
+                labelTitle="YOUTUBE"
                 labelForId="youtube"
-                placeholder="URL"
+                placeholder="URL을 입력하세요"
                 name="youtube"
               />
             </template>
@@ -51,7 +53,7 @@
               inputType="text"
               labelTitle="Title"
               labelForId="title"
-              placeholder="Title"
+              placeholder="제목을 입력하세요"
               name="title"
               @update:modelValue="changeTitle"
             />
@@ -61,7 +63,7 @@
               inputType="text"
               labelTitle="Description"
               labelForId="description"
-              placeholder="Description"
+              placeholder="설명을 입력하세요"
               name="description"
               @update:modelValue="changeDescription"
             />
@@ -72,14 +74,14 @@
                 class="update__form__button update__form__button--submit"
                 @click="saveData"
               >
-                <span class="update__form__button__text">Upload</span>
+                <span class="update__form__button__text">저장</span>
               </button>
 
               <router-link
                 to="/"
                 class="update__form__button update__form__button--cancel"
               >
-                <span class="update__form__button__text">Cancel</span>
+                <span class="update__form__button__text">취소</span>
                 <!-- <button
                   type="butotn"
                   class="update__form__button update__form__button--cancel"
@@ -103,10 +105,11 @@
 
 <script setup>
 import navigation from '@/layouts/components/Navigation.vue'
+import Title from '@/components/PageTitle.vue'
 import componentInput from '@/layouts/components/componentInput.vue'
 import VideoData from '@/layouts/components/videoList.js'
 import '@/assets/scss/index.scss'
-import '@/assets/scss/update.scss'
+// import '@/assets/scss/update.scss'
 import { ref } from 'vue'
 
 const vSelected = ref('link')

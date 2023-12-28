@@ -78,7 +78,7 @@
                             buttonName="취소"                        
                             color="btn secondary"
                             size="medium"
-                            @click="cancelJoinStep" 
+                            @click="$router.go(-1)" 
                         >  
                         </MyBtn>                    
                     </div>             

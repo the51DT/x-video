@@ -51,7 +51,7 @@
                             buttonName="취소"                        
                             color="btn secondary"
                             size="medium"
-                            @click="$emit('closeLy')" 
+                            @click="$router.go(-1)" 
                         >  
                         </MyBtn>                    
                     </div>   

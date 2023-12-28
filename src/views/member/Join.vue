@@ -1,88 +1,93 @@
 <template>
-  <div class="member__wrap">
-    <div class="member__wrap--inner">
-        <Title 
-            :level="2" 
-            pageTitle="회원가입"
-        />
-        <div class="member-page__wrap">           
-            <div class="member-page__form">
-                <form @submit.prevent="registration">
-                    <ul>
-                        <li>
-                            <MyInput >
-                                <template #input>
-                                    <InputEl                                        
-                                        v-model="userId"
-                                        label="이메일 아이디"
-                                        required                   
-                                        @focusout="idCheck"
-                                        placeholder="이메일 주소를 입력하세요"    
-                                        :errorMsg="error.idErrorMsg"                                                                 
-                                    />                
-                                </template>         
-                            </MyInput>                                             
-                        </li>
-                        <li>
-                            <MyInput >
-                                <template #input>
-                                    <InputEl         
-                                        label="비밀번호"                               
-                                        v-model="password"
-                                        required     
-                                        types="password"                                                                           
-                                        placeholder="비밀번호를 입력하세요"                                                                                                                     
-                                    />                
-                                </template>         
-                            </MyInput>                          
-                        </li>    
-                        <li>
-                            <MyInput >
-                                <template #input>
-                                    <InputEl     
-                                        label="비밀번호 확인"
-                                        v-model="passwordRe"
-                                        required     
-                                        types="password"  
-                                        @focusout="pwcheck"     
-                                        :errorMsg="error.pwErrorMsg"                                                                       
-                                        placeholder="비밀번호를 다시 한번 입력하세요"                                                                                                                   
-                                    />                
-                                </template>         
-                            </MyInput>                          
-                        </li>
-                        <li>
-                            <MyInput >
-                                <template #input>
-                                    <InputEl            
-                                        label="이름"                            
-                                        v-model="Name"
-                                        required                                                                              
-                                        placeholder="이름을 입력하세요"                                                                      
-                                    />                
-                                </template>         
-                            </MyInput>                          
-                        </li>                                                                    
-                    </ul>                
-                    <div class="button__wrap">
-                        <MyBtn                            
-                            buttonName="회원가입"
-                            type="submit"
-                            color="btn primary"                            
-                            size="medium"        
-                            :disabled="!userId || !password || !passwordRe || !Name"
-                        >  
-                        </MyBtn>                           
-                        <MyBtn                            
-                            buttonName="취소"                        
-                            color="btn secondary"
-                            size="medium"
-                            @click="$router.go(-1)" 
-                        >  
-                        </MyBtn>                    
-                    </div>             
-                </form>
-            </div>        
+  <div class="phone-container">
+    <div class="phone">
+      <div class="screen">
+        <div class="member__wrap">
+          <div class="member__wrap--inner">
+              <Title 
+                  :level="2" 
+                  pageTitle="회원가입"
+              />
+              <div class="member-page__wrap">           
+                  <div class="member-page__form">
+                      <form @submit.prevent="registration">
+                          <ul>
+                              <li>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl                                        
+                                              v-model="userId"
+                                              label="이메일 아이디"
+                                              required                   
+                                              @focusout="idCheck"
+                                              placeholder="이메일 주소를 입력하세요"    
+                                              :errorMsg="error.idErrorMsg"                                                                 
+                                          />                
+                                      </template>         
+                                  </MyInput>                                             
+                              </li>
+                              <li>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl         
+                                              label="비밀번호"                               
+                                              v-model="password"
+                                              required     
+                                              types="password"                                                                           
+                                              placeholder="비밀번호를 입력하세요"                                                                                                                     
+                                          />                
+                                      </template>         
+                                  </MyInput>                          
+                              </li>    
+                              <li>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl     
+                                              label="비밀번호 확인"
+                                              v-model="passwordRe"
+                                              required     
+                                              types="password"  
+                                              @focusout="pwcheck"     
+                                              :errorMsg="error.pwErrorMsg"                                                                       
+                                              placeholder="비밀번호를 다시 한번 입력하세요"                                                                                                                   
+                                          />                
+                                      </template>         
+                                  </MyInput>                          
+                              </li>
+                              <li>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl            
+                                              label="이름"                            
+                                              v-model="Name"
+                                              required                                                                              
+                                              placeholder="이름을 입력하세요"                                                                      
+                                          />                
+                                      </template>         
+                                  </MyInput>                          
+                              </li>                                                                    
+                          </ul>                
+                          <div class="button__wrap">
+                              <MyBtn                            
+                                  buttonName="회원가입"
+                                  type="submit"
+                                  color="btn primary"                            
+                                  size="medium"        
+                                  :disabled="!userId || !password || !passwordRe || !Name"
+                              >  
+                              </MyBtn>                           
+                              <MyBtn                            
+                                  buttonName="취소"                        
+                                  color="btn secondary"
+                                  size="medium"
+                                  @click="$router.go(-1)" 
+                              >  
+                              </MyBtn>                    
+                          </div>             
+                      </form>
+                  </div>        
+              </div>
+          </div>
         </div>
       </div>
       <div class="navigation">
@@ -91,6 +96,7 @@
     </div>
   </div>
 </template>
+
 
 
 

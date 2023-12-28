@@ -27,14 +27,14 @@
       >
     </div> -->
     <div class="navigation-button">
-      <router-link to="/home">
+      <router-link to="/">
         <base-button type="home"> 
           <span>home</span>
         </base-button>
       </router-link>
     </div>
     <div class="navigation-button">
-      <router-link to="/shots">
+      <router-link to="/home">
         <base-button type="shots"> 
           <span>shots</span>
         </base-button>

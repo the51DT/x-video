@@ -1,20 +1,13 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { getShort } from '@/api/getData'
-const { MemberList, VideoList } = getShort()
+const { xMemberList } = getShort()
 
-// 비디오 로컬 저장
-const memberData = JSON.stringify(MemberList)
-window.localStorage.setItem('xMember', memberData)
 // 회원 로컬 저장
-const videoData = JSON.stringify(VideoList)
-window.localStorage.setItem('xVideo', videoData)
-
 const getMember = JSON.parse(localStorage.getItem('xMember'))
-const getVideo = JSON.parse(localStorage.getItem('xVideo'))
 
-const xMemberList = getMember._value
-console.log('11', xMemberList)
+const MemberList = getMember._value
+console.log('dd', MemberList)
 
 import { router } from '../router'
 
@@ -37,7 +30,7 @@ export const useUserStore = defineStore('auth', {
     },
     actions: {
         signIn: async function(userId, password) {                       
-            const user = xMemberList.find(user => user.userId === userId && user.password === password);
+            const user = MemberList.find(user => user.userId === userId && user.password === password);
             if (user) {
                 this.userId = user.userId;
                 this.userName = user.name;      

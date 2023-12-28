@@ -56,7 +56,7 @@
                                   buttonName="취소"                        
                                   color="btn secondary"
                                   size="medium"
-                                  @click="$emit('closeLy')" 
+                                  @click="$router.go(-1)" 
                               >  
                               </MyBtn>                    
                           </div>   
@@ -97,6 +97,8 @@ import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
 import '@/assets/scss/index.scss'
 import {isKor, isPw, isEmail} from "@/utils/check"
+const getMember = JSON.parse(localStorage.getItem('xMember'))
+const getVideo = JSON.parse(localStorage.getItem('xVideo'))
 
 const error = ref({
     idErrorMsg: '',

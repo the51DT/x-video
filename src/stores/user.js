@@ -69,7 +69,6 @@ export const useUserStore = defineStore('auth', {
             getMember._value.push(newUser)
             localStorage.setItem('xMember', JSON.stringify(getMember));
             console.log('insert', MemberList)
-            router.push("/home")
         },
         logOut: function() {
             this.userId = null

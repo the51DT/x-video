@@ -2,6 +2,7 @@
   <div class="phone-container">
     <div class="phone">
       <div class="screen">
+        <loading v-if="isLoading" />
         <div class="member__wrap">
           <div class="member__wrap--inner">
               <Title 
@@ -109,6 +110,7 @@ import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
 import {isKor, isPw, isEmail} from "@/utils/check"
 import '@/assets/scss/index.scss'
+import { router } from '../../router'
 
 const getMember = JSON.parse(localStorage.getItem('xMember'))
 const MemberList = getMember._value
@@ -124,6 +126,7 @@ const error = ref({
     pwErrorMsg: '' 
   }
 )
+const isLoading = ref(false)
 
 const idCheck = async () => {   
     let userIdExists = MemberList.some(member => member.id === userId.value)
@@ -156,5 +159,10 @@ const pwcheck =  async () => {
 }
 const registration  = async () => {                
     await userStore.registrations(userId.value, password.value,Name.value)       
+    isLoading.value = true
+    setTimeout(() => {
+        isLoading.value = false
+        router.push("/home")
+    }, 2000)      
 }
 </script>

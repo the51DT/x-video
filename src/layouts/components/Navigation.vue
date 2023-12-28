@@ -104,7 +104,6 @@ import { ref, defineEmits } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from "@/stores/user"
 import { router } from '../../router'
-import LoadingDot from '../../components/LoadingDot.vue'
 const userStore = useUserStore()
 const userName = ref(userStore.userName)
 const emit = defineEmits(['goHome'])

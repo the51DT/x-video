@@ -52,12 +52,10 @@
         </base-button>
       </router-link>
     </div>
-    <div class="navigation-button">
-      <router-link to="/Library">
-        <base-button type="library">
-          <span>library</span>  
-        </base-button>
-      </router-link>
+    <div class="navigation-button">      
+      <base-button type="library" @click="goLibrary">
+        <span>library</span>  
+      </base-button>      
     </div>
   </div>
   <!-- nav popup type -->
@@ -104,6 +102,13 @@ import BaseButton from '@/layouts/components/BaseButton.vue'
 import componentPopup from '@/layouts/components/componentPopup.vue'
 import { ref, defineEmits } from 'vue'
 
+// pinia 
+import { storeToRefs } from 'pinia'
+import { useUserStore } from "@/stores/user"
+import { router } from '../../router'
+const userStore = useUserStore()
+const userName = ref(userStore.userName)
+
 // nav popup type
 // const home = ref(false)
 // const popupShots = ref(false)
@@ -130,6 +135,13 @@ import { ref, defineEmits } from 'vue'
 // const handleLibrary = () => {
 //   Library.value = true
 // }
+const goLibrary = () => {
+  if(userStore.isLoggedIn) {
+    router.push('/Library')
+  } else {
+    router.push('/Signup')
+  } 
+}
 </script>
 
 <style lang="scss">

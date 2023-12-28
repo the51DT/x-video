@@ -98,7 +98,7 @@ const userStore = useUserStore()
 import {isKor, isPw, isEmail} from "@/utils/check"
 import '@/assets/scss/index.scss'
 
-const getMember = JSON.parse(localStorage.getItem('member'))
+const getMember = JSON.parse(localStorage.getItem('xMember'))
 const MemberList = getMember._value
 
 console.log('회원정보', MemberList)
@@ -124,7 +124,7 @@ const idCheck = async () => {
     } else if(!isEmail(userId.value)) {        
         error.value.idErrorMsg = '정확한 이메일 주소를 입력하세요'
         userId.value = ''
-    }else if(!userIdExists) {        
+    }else if(userIdExists) {        
         error.value.idErrorMsg = '사용할 수 없는 이메일 입니다.'
         userId.value = ''
     }else {

@@ -17,7 +17,6 @@
                                         label="이메일 아이디"
                                         required                   
                                         @focusout="idCheck"
-                                        guideMsg="이메일 아이디를 입력하세요"                                                                      
                                         placeholder="이메일 주소를 입력하세요"    
                                         :errorMsg="error.idErrorMsg"                                                                 
                                     />                
@@ -85,11 +84,18 @@
                 </form>
             </div>        
         </div>
+      </div>
+      <div class="navigation">
+        <navigation></navigation>
+      </div>
     </div>
   </div>
 </template>
 
+
+
 <script setup>
+import navigation from '@/layouts/components/Navigation.vue'
 import Axios from "axios"
 import { ref, watch, computed, onMounted, nextTick, defineProps, defineEmits } from 'vue'
 import { storeToRefs } from 'pinia'

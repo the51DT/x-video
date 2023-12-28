@@ -80,7 +80,7 @@
                                   buttonName="취소"                        
                                   color="btn secondary"
                                   size="medium"
-                                  @click="$router.go(-1)" 
+                                  @click="$router.go(-2)" 
                               >  
                               </MyBtn>                    
                           </div>             
@@ -147,7 +147,7 @@ const pwcheck =  async () => {
     if(!password.value) {        
         error.value.pwErrorMsg = '비밀번호 확인을 입력 해주세요.'
         passwordRe.value = ''
-    } else if(password.value === passwordRe.value){
+    } else if(password.value !== passwordRe.value){
         error.value.pwErrorMsg = '비밀번호 확인을 다시 입력 해주세요.'
         passwordRe.value = ''        
     } else {
@@ -156,8 +156,5 @@ const pwcheck =  async () => {
 }
 const registration  = async () => {                
     await userStore.registrations(userId.value, password.value,Name.value)       
-}
-const cancelJoinStep = () => {
-
 }
 </script>

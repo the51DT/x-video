@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation-bar">
+  <div class="navigation-bar">    
     <!-- nav popup type -->
     <!-- <div class="navigation-button">
       <base-button type="home" @click="handlehome"
@@ -27,11 +27,9 @@
       >
     </div> -->
     <div class="navigation-button">
-      <router-link to="/">
-        <base-button type="home"> 
+      <base-button type="home" @click="goHome"> 
           <span>home</span>
-        </base-button>
-      </router-link>
+      </base-button>
     </div>
     <div class="navigation-button">
       <router-link to="/home">
@@ -106,9 +104,13 @@ import { ref, defineEmits } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from "@/stores/user"
 import { router } from '../../router'
+import LoadingDot from '../../components/LoadingDot.vue'
 const userStore = useUserStore()
 const userName = ref(userStore.userName)
-
+const emit = defineEmits(['goHome'])
+const goHome = () => {
+  emit('goHome')
+}
 // nav popup type
 // const home = ref(false)
 // const popupShots = ref(false)

@@ -2,12 +2,13 @@
   <div class="phone-container">
     <div class="phone">
       <div class="screen">
+        <Loading v-if="isLoading" />
         <div class="video">
           <swipe :videos="videoList"></swipe>
         </div>
       </div>
       <div class="navigation">
-        <navigation />
+        <navigation @goHome="goHome" />
       </div>
       <div v-if="popupOpen" class="popup">
         <div class="popup-detail">
@@ -37,6 +38,7 @@ const videoList = ref(VideoData)
 const popupOpen = ref()
 const { emit } = defineEmits()
 const { MemberList, VideoList } = getShort()
+const isLoading = ref(false)
 
 onMounted(() => {
   const getMember = JSON.parse(localStorage.getItem('xMember'))
@@ -54,5 +56,13 @@ const allowAuth = () => {
   const videoData = JSON.stringify(VideoList)
   window.localStorage.setItem('xVideo', videoData)
   popupOpen.value = false
+}
+
+const goHome = () => {
+  isLoading.value = true
+  setTimeout(() => {
+    isLoading.value = false
+    router.push('/')
+  }, 2000)
 }
 </script>

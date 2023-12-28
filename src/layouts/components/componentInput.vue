@@ -7,8 +7,7 @@
         :type="vModel"
         :placeholder="placeholder"
         :id="labelForId"
-        class="input-box__input-text"
-        @change="$emit('update:modelValue', $event.target.value)"
+        class="input-box__input-text"        
       />
     </div>
     <div v-if="inputType == 'select'" class="input-box">

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="member__wrap">
     <div class="member__wrap--inner">
         <Title 
@@ -71,9 +71,99 @@
         </div>     
     </div>
   </div>
+</template> -->
+
+<template>
+  <div class="phone-container">
+    <div class="phone">
+      <div class="screen">
+        <div class="member__wrap">
+          <div class="member__wrap--inner">
+              <Title 
+                  :level="2" 
+                  pageTitle="LOGIN"
+              />
+              <p class="title"><span>로그인</span>이 필요한 서비스입니다.</p>
+              <div class="member-page__wrap">        
+                  <div class="member-page__form">
+                      <form @submit.prevent="submitForm">
+                          <ul>
+                              <li>
+                                <p class="input-title">Email</p>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl                                        
+                                              v-model="userId"
+                                              required                                                
+                                              placeholder="이메일 주소를 입력하세요"    
+                                              @focusout="Validation" 
+                                              :errorMsg="error.idErrorMsg"                                                                   
+                                          />                
+                                          <!-- guideMsg="이메일 아이디를 입력하세요" -->
+                                      </template>         
+                                  </MyInput>                          
+                              </li>
+                              <li>
+                                <p class="input-title">Password</p>
+                                  <MyInput >
+                                      <template #input>
+                                          <InputEl                                        
+                                              v-model="password"
+                                              required     
+                                              types="password"                                          
+                                              placeholder="비밀번호를 입력하세요"  
+                                              :errorMsg="error.pwErrorMsg"                                                                          
+                                          />                
+                                      </template>         
+                                  </MyInput>                          
+                              </li>                    
+                          </ul>                
+                          <div class="button__wrap">
+                              <MyBtn                            
+                                  buttonName="로그인"
+                                  type="submit"
+                                  color="btn primary"
+                                  :disabled="!userId || !password"
+                                  size="medium"                        
+                              >  
+                              </MyBtn>   
+                              <MyBtn                            
+                                  buttonName="취소"                        
+                                  color="btn secondary"
+                                  size="medium"
+                                  @click="$emit('closeLy')" 
+                              >  
+                              </MyBtn>                    
+                          </div>   
+                          <div class="help-msg">
+                              <router-link to="/Register">
+                                  회원가입
+                              </router-link>
+                              <span>|</span>
+                              <router-link to="#" @click="isAlert(event)">
+                                  아이디 찾기
+                              </router-link>  
+                              <span>|</span>                         
+                              <router-link to="#" @click="isAlert(event)">
+                                  비밀번호 찾기
+                              </router-link>                          
+                          </div>          
+                      </form>
+                  </div>
+              </div>     
+          </div>
+        </div>
+      </div>
+      <div class="navigation">
+        <navigation></navigation>
+      </div>
+    </div>
+  </div>
 </template>
 
+
 <script setup>
+import navigation from '@/layouts/components/Navigation.vue'
 import axios from 'axios';
 // import vue from "@vitejs/plugin-vue"
 import { ref, watch, computed, onMounted, nextTick, defineProps, defineEmits } from 'vue'

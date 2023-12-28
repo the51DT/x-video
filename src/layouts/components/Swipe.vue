@@ -24,6 +24,7 @@
           ref="videoRef"
           @click="toggleVideo(video, index)"
           @dblclick="handleToggle(video, index)"
+          @play="updateCount(video, index)"                
         ></video>
         <i
           :class="`icon-video ${
@@ -40,7 +41,7 @@
         ></i>
         <div class="video-details">
           <h2>{{ video.title }}</h2>
-          <p>{{ video.nickName }} &nbsp; • &nbsp; {{ video.uploadtime }}</p>
+          <p>{{ video.nickName }}  &nbsp; • &nbsp; 조회 : {{ video.statistics.play_count  }} &nbsp; • &nbsp; {{ video.uploadtime }}</p>
         </div>
         <div class="button-bar statistics">
           <div>
@@ -260,6 +261,20 @@ const toggleVideo = (video, index) => {
 //   loop: true,
 //   mousewheel: true,
 // }
+
+// const VideoUpdateTime = (video, index) => {
+//     const videoElement = videoRef.value[index]
+//     const videoDurationInMinutes = Math.floor(videoElement.duration / 60)
+//     const videoSeconds = Math.floor(videoElement.duration % 60)
+//     videoInfo.duration = videoDurationInMinutes + ':' + videoSeconds
+
+//     const videoWatchTime = videoElement.currentTime    
+// }
+
+const updateCount = (video, index) => {    
+    video.statistics.play_count++    
+     console.log(video)
+}
 </script>
 
 <style scoped></style>

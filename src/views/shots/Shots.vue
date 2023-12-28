@@ -48,11 +48,11 @@ onMounted(() => {
 // function
 const allowAuth = () => {
   // 비디오 로컬 저장
-  const videoData = JSON.stringify(VideoList)
-  window.localStorage.setItem('xMember', videoData)
-  // 회원 로컬 저장
   const memberData = JSON.stringify(MemberList)
-  window.localStorage.setItem('xVideo', memberData)
+  window.localStorage.setItem('xMember', memberData)
+  // 회원 로컬 저장
+  const videoData = JSON.stringify(VideoList)
+  window.localStorage.setItem('xVideo', videoData)
   popupOpen.value = false
 }
 </script>

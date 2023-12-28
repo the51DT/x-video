@@ -1,10 +1,10 @@
 let VideoData = [
   {
     id: 1,
-    title: '눈',
+    title: '서울',
     url: './video/video1.mp4',
     thumbnail: './thumbnail/thumbnail1.png',
-    nickName: '@Bae',
+    nickName: '@Seoul',
     uploadtime: '2023-12-08 12:00',
     statistics: {
       comment_count: 3,
@@ -38,10 +38,10 @@ let VideoData = [
   },
   {
     id: 2,
-    title: '고양이',
+    title: '지구',
     url: './video/video2.mp4',
-    thumbnail: './thumbnail/thumbnail1.png',
-    nickName: '@Cheese',
+    thumbnail: './thumbnail/thumbnail2.png',
+    nickName: '@space',
     uploadtime: '2023-12-09 10:05',
     statistics: {
       comment_count: 6,
@@ -92,10 +92,10 @@ let VideoData = [
   },
   {
     id: 3,
-    title: '제목1',
-    url: './video/video1.mp4',
-    thumbnail: './thumbnail/thumbnail1.png',
-    nickName: '@id',
+    title: '눈',
+    url: './video/video3.mp4',
+    thumbnail: './thumbnail/thumbnail3.png',
+    nickName: '@bae',
     uploadtime: '2023-12-10 10:00',
     statistics: {
       comment_count: 2,
@@ -123,10 +123,10 @@ let VideoData = [
   },
   {
     id: 4,
-    title: '제목2',
-    url: './video/video1.mp4',
-    thumbnail: './thumbnail/thumbnail1.png',
-    nickName: '@id',
+    title: '고양이',
+    url: './video/video4.mp4',
+    thumbnail: './thumbnail/thumbnail4.png',
+    nickName: '@Cheese',
     uploadtime: '2023-12-11 11:10',
     statistics: {
       comment_count: 6,

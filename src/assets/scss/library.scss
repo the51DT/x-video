@@ -65,6 +65,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      height: 41%;
       .video {
         position: relative;
         width: 120px;
@@ -89,7 +90,7 @@
           background-color: rgba(0, 0, 0, 0.5);
           color: #fff;
           box-sizing: border-box;
-          visibility: hidden;
+          visibility: visible;
           transition: visibility 0.3s ease;
           h2 {
             margin: 0;
@@ -104,7 +105,7 @@
     }
     .video:hover {
       .video-details {
-        visibility: visible;
+        visibility: hidden;
       }
       .video-player{
         display: block;

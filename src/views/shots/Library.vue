@@ -6,7 +6,7 @@
             <div class="profile">
               <div class="icon-user"></div>
               <div class="user">
-                <p class="user-name">Username</p>
+                <p class="user-name">{{ userName ? userName : '' }}</p>
                 <p class="user-id">@user</p>
                 <p class="user-subscribers">12,345 subscribers</p>
               </div>
@@ -38,4 +38,12 @@ import '@/assets/scss/index.scss'
 import { ref } from 'vue'
 
 const videoList = ref(VideoData)
+
+// 로그인 체크
+import { storeToRefs } from 'pinia'
+import { useUserStore } from "@/stores/user"
+const userStore = useUserStore()
+const userName = ref(userStore.userName)
+console.log('유저', userName)
+
 </script>

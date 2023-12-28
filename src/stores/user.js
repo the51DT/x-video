@@ -1,7 +1,13 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
+import { getShort } from '@/api/getData'
+const { xMemberList } = getShort()
+
+// 회원 로컬 저장
 const getMember = JSON.parse(localStorage.getItem('xMember'))
-// const MemberList = getMember._value
+
+const MemberList = getMember._value
+console.log('dd', MemberList)
 
 import { router } from '../router'
 
@@ -23,8 +29,7 @@ export const useUserStore = defineStore('auth', {
         },
     },
     actions: {
-        signIn: async function(userId, password) {
-            console.log('로그인시',MemberList, userId, password)            
+        signIn: async function(userId, password) {                       
             const user = MemberList.find(user => user.userId === userId && user.password === password);
             if (user) {
                 this.userId = user.userId;
@@ -36,7 +41,7 @@ export const useUserStore = defineStore('auth', {
                 localStorage.setItem('userName', user.name); // 로컬 스토리지에 userName 저장
                 this.getUserInfo()            
                 alert('로그인 성공 했습니다.')
-                router.push("/shortsApp")
+                router.push("/home")
             } else {
                 alert('회원 정보가 없습니다.')  
             }
@@ -62,7 +67,7 @@ export const useUserStore = defineStore('auth', {
             };
             console.log('전달완료', newUser)
             getMember._value.push(newUser)
-            localStorage.setItem('member', JSON.stringify(getMember));
+            localStorage.setItem('xMember', JSON.stringify(getMember));
             console.log('insert', MemberList)
         },
         logOut: function() {

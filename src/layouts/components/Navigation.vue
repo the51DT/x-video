@@ -27,14 +27,14 @@
       >
     </div> -->
     <div class="navigation-button">
-      <router-link to="/home">
+      <router-link to="/">
         <base-button type="home"> 
           <span>home</span>
         </base-button>
       </router-link>
     </div>
     <div class="navigation-button">
-      <router-link to="/shots">
+      <router-link to="/home">
         <base-button type="shots"> 
           <span>shots</span>
         </base-button>
@@ -52,12 +52,10 @@
         </base-button>
       </router-link>
     </div>
-    <div class="navigation-button">
-      <router-link to="/Library">
-        <base-button type="library">
-          <span>library</span>  
-        </base-button>
-      </router-link>
+    <div class="navigation-button">      
+      <base-button type="library" @click="goLibrary">
+        <span>library</span>  
+      </base-button>      
     </div>
   </div>
   <!-- nav popup type -->
@@ -104,6 +102,13 @@ import BaseButton from '@/layouts/components/BaseButton.vue'
 import componentPopup from '@/layouts/components/componentPopup.vue'
 import { ref, defineEmits } from 'vue'
 
+// pinia 
+import { storeToRefs } from 'pinia'
+import { useUserStore } from "@/stores/user"
+import { router } from '../../router'
+const userStore = useUserStore()
+const userName = ref(userStore.userName)
+
 // nav popup type
 // const home = ref(false)
 // const popupShots = ref(false)
@@ -130,54 +135,11 @@ import { ref, defineEmits } from 'vue'
 // const handleLibrary = () => {
 //   Library.value = true
 // }
+const goLibrary = () => {
+  if(userStore.isLoggedIn) {
+    router.push('/Library')
+  } else {
+    router.push('/Signup')
+  } 
+}
 </script>
-
-<style lang="scss">
-.base-button--shots:before {
-  /* 숏츠 버튼 */
-  display: block;
-  content: '';
-  clear: both;
-  margin: 0 auto;
-  width: 30px;
-  height: 26px;
-  background: url(@/assets/icon/shots.svg) center / contain no-repeat;
-  vertical-align: middle;
-  /* padding: 14px; */
-}
-.base-button--plus:before {
-  /* 더보기 버튼 */
-  display: block;
-  content: '';
-  clear: both;
-  margin: 0 auto;
-  width: 42px;
-  height: 42px;
-  background: url(@/assets/icon/plus.svg) center / contain no-repeat;
-  vertical-align: middle;
-  /* padding: 29px; */
-}
-.base-button--subscriptions:before {
-  /* 구독 버튼 */
-  display: block;
-  content: '';
-  clear: both;
-  margin: 0 auto;
-  width: 28px;
-  height: 28px;
-  background: url(@/assets/icon/subscriptions.svg) center / contain no-repeat;
-  vertical-align: middle;
-}
-.base-button--library:before {
-  /* 라이브러리 버튼 */
-  display: block;
-  content: '';
-  clear: both;
-  margin: 0 auto;
-  width: 28px;
-  height: 28px;
-
-  background: url(@/assets/icon/library.svg) center / contain no-repeat;
-  vertical-align: middle;
-}
-</style>

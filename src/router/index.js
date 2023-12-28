@@ -14,8 +14,8 @@ import Register from '@/views/member/Join.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: home,
+    name: 'root',
+    component: () => import('@/views/shots/Shots.vue'),
   },
   {
     path: '/home',

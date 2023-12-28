@@ -47,16 +47,6 @@ const routes = [
     name: 'Register',
     component: Register,
   }
-  // {
-  //     path: "/subscriptions",
-  //     name: "subscriptions",
-  //     component: subscriptions,
-  // },
-  // {
-  //     path: "/library",
-  //     name: "library",
-  //     component: library,
-  // }
 ]
 // 라우터 생성
 const router = createRouter({

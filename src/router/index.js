@@ -13,7 +13,7 @@ import Register from '@/views/member/Join.vue'
 // 라우터
 const routes = [
   {
-    path: '/',
+    path: '',
     name: 'root',
     component: home,
   },

@@ -86,7 +86,7 @@
                     type="butotn"
                     class="update__form__button update__form__button--cancel"
                   >
-                    <span class="update__form__button__text">Cancel</span>
+                    <span class="update__form__button__text">Cancel</span> 
                   </button> -->
                 </router-link>
               </div>

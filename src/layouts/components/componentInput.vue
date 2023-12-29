@@ -69,6 +69,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  modelValue: String,
   placeholder: {
     type: String,
     default: '',
